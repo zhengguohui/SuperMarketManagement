@@ -1,0 +1,68 @@
+@charset "utf-8";
+a:hover {
+	text-decoration:none;
+}
+img {
+	border:none;
+}
+.pages {
+	text-indent:2em;
+	line-height:25px;
+}
+.pagestitle {
+	text-align:center;
+	font-size:20px;
+	font-weight:900;
+	border-bottom:1px dashed #ccc;
+	padding-bottom:15px;
+	line-height: 22px;
+}
+.pagestitle1 {
+	font-size:16px;
+	font-weight:900;
+	line-height: 22px;
+}
+.pictitle {
+	text-align:center;
+	background-color:#EEE;
+	padding:10px;
+}
+.maintitle
+{
+	padding:10px; 
+	text-align:left; 
+	margin-bottom:10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	background-color: #eee;
+
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.label1{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #ccc;
+	overflow:hidden;
+padding-left: 7px;
+padding-right: 7px;
+	color:#666;
+}
+.picframe {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	overflow:hidden;
+	/*阴影*/
+	box-shadow: 3px 3px 4px #CCC;
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')";
+}
