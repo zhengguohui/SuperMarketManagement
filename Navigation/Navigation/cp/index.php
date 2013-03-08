@@ -35,27 +35,36 @@ if(isset($_POST["signupbutton"]))
 			$_SESSION["signupuseremail2"]="";
 			$_SESSION["signupuserpassword2"]="";
 			$_SESSION["signupreuserpassword2"]="";
-			header('Location: '.SITE_LINK.'mysupermarket/');
+			header('Location: '.SITE_LINK.'my/');
 		}
 	}
 }
 require_once("../include_header.php");
 ?>
 <div class="row">
-	<div class="span4">&nbsp;</div>
-	<div class="span4">
-    	<div class="well">
+	<div class="span3">&nbsp;</div>
+	<div class="span6">
+    	<div class="box">
+    	
 			<form id="formsignup" name="formsignup" method="post" action="">
-				<div class="alert alert-info" style="padding:10px; text-align:center; margin-bottom:10px;"><h4>修改密码</h4></div>
-				<p><input title="" style="width:170px;" name="signupuseremail" type="password" id="signupuseremail" value="<?php echo @$_SESSION["signupuseremail2"]; ?>" size="5" />&nbsp;&nbsp;原始密码&nbsp;&nbsp;*</p>
-				<p><input title="" style="width:170px;" name="signupuserpassword" type="password" id="signupuserpassword" value="<?php echo @$_SESSION["signupuserpassword2"]; ?>" size="5" />&nbsp;&nbsp;新设密码&nbsp;&nbsp;*</p>
-				<p><input title="" style="width:170px;" name="signupreuserpassword" type="password" id="signupreuserpassword" value="<?php echo @$_SESSION["signupreuserpassword2"]; ?>" size="5" />&nbsp;&nbsp;密码重复&nbsp;&nbsp;*</p>
-				<p><input class="btn btn-primary" type="submit" name="signupbutton" id="signupbutton" value="修改密码" />
+				<div class="alert alert-info" style="padding:10px; text-align:center; margin-bottom:20px;"><h4>修改密码</h4></div>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+				<td align="left" valign="top" style="padding-right:20px;"><img src="<?php echo SITE_LINK; ?>static/img/cp.png" />
+				</td>
+				 <td align="left" valign="top"><p><input title="原始密码" style="width:170px;" name="signupuseremail" type="password" id="signupuseremail" value="<?php echo @$_SESSION["signupuseremail2"]; ?>" size="5" />&nbsp;&nbsp;原始密码&nbsp;&nbsp;*</p>
+				<p><input title="新设密码" style="width:170px;" name="signupuserpassword" type="password" id="signupuserpassword" value="<?php echo @$_SESSION["signupuserpassword2"]; ?>" size="5" />&nbsp;&nbsp;新设密码&nbsp;&nbsp;*</p>
+				<p><input title="密码重复" style="width:170px;" name="signupreuserpassword" type="password" id="signupreuserpassword" value="<?php echo @$_SESSION["signupreuserpassword2"]; ?>" size="5" />&nbsp;&nbsp;密码重复&nbsp;&nbsp;*</p></td>
+				</tr>
+</table>
+<p class="line"></p>
+				<p style="text-align:center;"><input title="修改" class="btn btn-primary" type="submit" name="signupbutton" id="signupbutton" value="修改" />&nbsp;&nbsp;<a class="btn btn-primary" href="<?php echo SITE_LINK.'my/'; ?>" title="返回">返回</a></p>
                 <?php echo $error1; ?>
 			</form>
+			
 		</div>
     </div>
-    <div class="span4">&nbsp;</div>
+    <div class="span3">&nbsp;</div>
 </div>
 <script language="javascript" type="text/javascript">
 document.getElementById("signupuseremail").focus()();

@@ -6,7 +6,7 @@ define('DATA_USER','root');
 define('DATA_PASS','');
 //设置网站参数
 define('SITE_DOMAIN','localhost');
-define('SITE_ADDRESS','shop');
+define('SITE_ADDRESS','MyShop');
 define('SITE_LINK','http://'.SITE_DOMAIN.'/'.SITE_ADDRESS.'/');
 define('SITE_TITLE','超市顾客应用平台导航');
 define('PASSWORD_STRING','Candison');
@@ -16,10 +16,10 @@ define('PASSWORD_STRING','Candison');
 @session_start();
 //设置301转向
 if(strtolower($_SERVER['HTTP_HOST'])!=SITE_DOMAIN)
-{ 
-	header('HTTP/1.1 301 Moved Permanently'); 
+{
+	header('HTTP/1.1 301 Moved Permanently');
 	header('Location: http://'.SITE_DOMAIN.$_SERVER['REQUEST_URI']);
-	exit(); 
+	exit();
 }
 /*函数***********************/
 //画线
