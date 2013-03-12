@@ -12,7 +12,7 @@ namespace Website
         protected void Page_Load(object sender, EventArgs e)
         {
             Label3.Text = "";
-            string sql = "select smm_number,smm_picture,smm_name,smm_price,smm_danwei,smm_tag,smm_about from smm_product where smm_number='"+Request.QueryString["id"]+"'";
+            string sql = "select smm_sum,smm_number,smm_picture,smm_name,smm_price,smm_danwei,smm_tag,smm_about from smm_product where smm_number='"+Request.QueryString["id"]+"'";
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader da = db.SQLReader(sql);
             if (da.Read())
@@ -26,7 +26,15 @@ namespace Website
 
                 m+="</table>";
                 Label2.Text = m;
+                this.Title = ClassMain.GetPageTitle(da["smm_name"].ToString());
+                if (Convert.ToInt32(da["smm_sum"]) <= 0)
+                {
+                    Button1.Visible = false;
+                    Button2.Visible = false;
+                    Label3.Text = ClassMain.ShowAlert("该商品暂时无货！");
+                }
             }
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)

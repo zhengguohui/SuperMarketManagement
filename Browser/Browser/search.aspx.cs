@@ -26,13 +26,13 @@ namespace Website
                     LabelAlert.Text = ClassMain.ShowInformation("搜索商品：" + s);
          
                 LabelSearch.Text = ClassMain.ShowGoods(sql);
-                this.Title = "搜索商品：" + s;
+                this.Title = ClassMain.GetPageTitle("搜索商品：" + s);
             }
             else
             {
                 LabelAlert.Text = ClassMain.ShowAlert("您搜索的商品不存在！");
                 LabelSearch.Text ="";
-                this.Title = "您搜索的商品不存在！";
+                this.Title =ClassMain.GetPageTitle( "您搜索的商品不存在！");
             }
            
            
