@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
+    <Content Include="cpassowrd.aspx" />
+    <Content Include="editaccount.aspx" />
     <Content Include="orderlist.aspx" />
     <Content Include="list.aspx" />
     <Content Include="login.aspx" />
@@ -61,7 +63,7 @@
     <Content Include="search.aspx" />
     <Content Include="showgood.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Default.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="newslist.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +78,20 @@
     <Compile Include="ClassMain.cs" />
     <Compile Include="ClassManageDataBase.cs" />
     <Compile Include="ClassSettings.cs" />
+    <Compile Include="cpassowrd.aspx.cs">
+      <DependentUpon>cpassowrd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cpassowrd.aspx.designer.cs">
+      <DependentUpon>cpassowrd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editaccount.aspx.cs">
+      <DependentUpon>editaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editaccount.aspx.designer.cs">
+      <DependentUpon>editaccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="orderlist.aspx.cs">
       <DependentUpon>orderlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,12 +135,12 @@
       <DependentUpon>news.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="search.aspx.cs">
       <DependentUpon>search.aspx</DependentUpon>

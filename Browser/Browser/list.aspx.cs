@@ -96,7 +96,15 @@ namespace Website
         }
         ArrayList get()
         {
-            string cookie = Request.Cookies["good"].Value;
+            string cookie = "";
+            try
+            {
+               cookie = Request.Cookies["good"].Value;
+            }
+            catch
+            {
+
+            }
             string newCookie = "";
             try
             {

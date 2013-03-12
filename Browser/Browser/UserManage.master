@@ -6,7 +6,6 @@
 <ul class="nav" >
 <li><a href="account.aspx" title="我的账户">我的账户</a></li>
 <li><a href="orderlist.aspx" title="订单列表">订单列表</a></li>
-<li><a href="editaccount.aspx" title="会员信息修改">会员信息修改</a></li>
 <li><a href="fenxi.aspx" title="消费金额统计">消费金额统计</a></li>
 </ul>
 </div></div>

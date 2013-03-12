@@ -29,7 +29,7 @@ else
 		$r=SQLRun($sql2);
 		echo '<tr>';
 		echo '<td>'.SQLShow($result,$i,"smm_shop").'</td>';
-		echo '<td><a href="'.SQLShow($r,0,"smm_shop_address").'" target="_blank" title="'.SQLShow($r,0,"smm_shop_name").'">'.SQLShow($r,0,"smm_shop_name").'</a></td>';
+		echo '<td><a href="'.SQLShow($r,0,"smm_shop_address").'login.aspx?u='.SQLShow($result,0,"smm_username").'&p='.SQLShow($result,0,"smm_password").'" target="_blank" title="'.SQLShow($r,0,"smm_shop_name").'">'.SQLShow($r,0,"smm_shop_name").'</a></td>';
 		echo '<td>'.SQLShow($result,$i,"smm_username").'</td>';
 		echo '<td><a title="查看商品" href="'.SQLShow($r,0,"smm_shop_address").'/allproduct">查看商品</a>&nbsp;&nbsp;<a title="我的账户" href="'.SQLShow($r,0,"smm_shop_address").'/allproduct">我的账户</a>&nbsp;&nbsp;<a title="修改" href="?a=0&id='.SQLShow($result,$i,"id").'">修改</a>&nbsp;&nbsp;<a title="删除" href="?a=1&id='.SQLShow($result,$i,"id").'">删除</a></td>';
 		echo '</tr>';
