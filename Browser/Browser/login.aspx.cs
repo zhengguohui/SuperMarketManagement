@@ -55,6 +55,7 @@ namespace Website
             if (ClassMain.CheckLogin(a, b))
             {
                 Session["Login"] = "1";
+                Session["username"] = TextBoxLoginUsername.Text.Trim();
                 Response.Redirect("default.aspx");
             }
             else

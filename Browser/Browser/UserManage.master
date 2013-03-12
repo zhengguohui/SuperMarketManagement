@@ -4,13 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="navbar" ><div class="navbar-inner">
 <ul class="nav" >
-<li><a href="<?php echo PAGE_INDEX; ?>" title="返回首页">返回首页</a></li>
-<li><a href="<?php echo PAGE_ABOUT; ?>" title="关于我们">关于我们</a></li>
-<li><a href="<?php echo PAGE_CONTACT; ?>" title="联系方式">联系方式</a></li>
-<li><a href="<?php echo PAGE_JOINUS; ?>" title="加入我们">加入我们</a></li>
-<li><a href="<?php echo PAGE_PROJECTS; ?>" title="开源项目">开源项目</a></li>
-<li><a href="<?php echo PAGE_NEWS; ?>" title="团队新闻">团队新闻</a></li>
-<li><a href="<?php echo PAGE_MESSAGE; ?>" title="留言板">留言板</a></li>
+<li><a href="account.aspx" title="我的账户">我的账户</a></li>
+<li><a href="orderlist.aspx" title="订单列表">订单列表</a></li>
+<li><a href="editaccount.aspx" title="会员信息修改">会员信息修改</a></li>
+<li><a href="fenxi.aspx" title="消费金额统计">消费金额统计</a></li>
 </ul>
 </div></div>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>

@@ -39,7 +39,23 @@ namespace Website
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            string OldCookie = "";
+            try
+            {
+                 OldCookie = Request.Cookies["good"].Value;
+            }
+            catch {  OldCookie = ""; }
+            string NewCookie = ","+Request.QueryString["id"].ToString() + "," + Convert.ToInt32(TextBox1.Text).ToString() +OldCookie;
+            HttpCookie hc = new HttpCookie("good");
+            hc.Value = NewCookie;
+            Response.Cookies.Add(hc);
             Label3.Text = ClassMain.ShowInformation("成功放入购物车！");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Button2_Click(sender, e);
+            Response.Redirect("list.aspx");
         }
     }
 }

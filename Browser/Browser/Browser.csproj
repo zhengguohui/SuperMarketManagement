@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
+    <Content Include="orderlist.aspx" />
     <Content Include="list.aspx" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
@@ -75,6 +76,13 @@
     <Compile Include="ClassMain.cs" />
     <Compile Include="ClassManageDataBase.cs" />
     <Compile Include="ClassSettings.cs" />
+    <Compile Include="orderlist.aspx.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderlist.aspx.designer.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="list.aspx.cs">
       <DependentUpon>list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
