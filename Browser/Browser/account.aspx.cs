@@ -6,11 +6,11 @@ using System.Web.UI.WebControls;
 
 namespace Website
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class account : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.Title= ClassMain.GetPageTitle("首页");
+
         }
     }
 }

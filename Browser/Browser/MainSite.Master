@@ -1,21 +1,115 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainSite.master.cs" Inherits="Website.MainSite" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="include/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .box {
+            /*圆角*/
+            /*
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	*/
+            /*阴影*/
+            /*
+	box-shadow: 3px 3px 4px #ddd;
+	-moz-box-shadow: 3px 3px 4px #ddd;
+	-webkit-box-shadow: 3px 3px 4px #ddd;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc');
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#cccccc')";
+	*/
+            background-color: #fff;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+            .box .title {
+                padding: 10px;
+                background-color: #eee;
+                border-bottom: 1px solid #ddd;
+                background-image: url(include/title.jpg);
+                background-repeat: repeat-x;
+                ;
+            }
+
+            .box .content {
+                padding: 7px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+    </style>
+    <script language="javascript" type="text/javascript" src="include/jquery-1.9.1.js"></script>
+<script language="javascript" type="text/javascript" src="include/bootstrap/js/bootstrap.min.js"></script>
+     <script language="javascript" type="text/javascript" src="include/bootstrap-transition.js"></script>
+     <script language="javascript" type="text/javascript" src="bootstrap-collapse.js"></script>
+     <script language="javascript" type="text/javascript" src="include/bootstrap-tooltip.js"></script>
+     <script language="javascript" type="text/javascript" src="include/bootstrap-popover.js"></script>
+    <script language="javascript" type="text/javascript" src="include/bootstrap-alert.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+    <!--IE浏览器兼容提示-->
+    <!--[if lte IE 6]>
+    <div class="alert alert-error" style="text-align:center; padding:30px;">本网站不支持IE6及以下版本的浏览器，请及时<a href="http://chrome.google.com" target="_blank" title="升级您的浏览器">升级您的浏览器</a>。</div>
+    <![endif]-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="default.aspx">
+                    <asp:Label ID="LabelCompanyName" runat="server" Text="LabelCompanyName"></asp:Label></a>
+               <asp:Label ID="LabelLogin" runat="server" Text="LabelLogin"></asp:Label>
+                <ul class="nav pull-right">
+                    <form action="search.aspx" method="get" name="search" class="navbar-search pull-left form-search">
+                        <div class="input-append">
+                            <input type="text" name="s" id="s" class="search-query" placeholder="在此输入要搜索的商品" title="在此输入要搜索的商品">
+                            <input class="btn" style="margin-top: 0px;" type="submit" value="搜索商品" title="搜索商品">
+                        </div>
+                    </form>
+
+                </ul>
+            </div>
+        </div>
     </div>
-    </form>
+    <div style="margin-top: 60px;"></div>
+    <div class="container">
+
+        <div class="row">
+            <div class="span3">
+                <div class="box"><div class="title">网站公告</div><div class="content">dgsdgsdfg</div></div>
+               <ul class="nav nav-list" style='padding:0px;'>
+                        <asp:Label ID="LabelGoodList" runat="server" Text="LabelGoodList"></asp:Label>
+
+</ul>
+            </div>
+            <div class="span9">
+                <form id="form1" runat="server">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb" style="text-align: center;">
+                    <li>CopyRight&nbsp;&copy;&nbsp;<script language="JavaScript" type="text/javascript">document.write(new Date().getFullYear());</script>&nbsp;<asp:Label ID="LabelCopyRight" runat="server" Text="LabelCopyRight"></asp:Label>&nbsp;All&nbsp;Rights&nbsp;Reserved.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("a[data-toggle=popover]").popover({ trigger: 'focus', html: true });
+        $("a[data-toggle!=popover],input").tooltip({ placement: 'bottom' });
+
+
+       // (function (q) { q ? q.toggle() : function (d, j) { j = d.createElement('script'); j.async = true; j.src = '//ime.qq.com/fcgi-bin/getjs'; j.setAttribute('ime-cfg', 'lt=2'); d = d.getElementsByTagName('head')[0]; d.insertBefore(j, d.firstChild) }(document) })(window.QQWebIME)
+</script>
 </body>
 </html>
