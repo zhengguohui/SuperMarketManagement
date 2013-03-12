@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+namespace Website
+{
+    public partial class showgood : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Label3.Text = "";
+            string sql = "select smm_number,smm_picture,smm_name,smm_price,smm_danwei,smm_tag,smm_about from smm_product where smm_number='"+Request.QueryString["id"]+"'";
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader da = db.SQLReader(sql);
+            if (da.Read())
+            {
+                Label1.Text="<img data-src='holder.js/300x200' alt='300x200' style='width: 300px; height: 200px;' src='include/goods/"+da["smm_number"].ToString()+"."+da["smm_picture"].ToString()+"'>";
+                string m= "<table class='table table-bordered table-hover'>";
+                m += "<tr><td colspan='2'><h4>" + da["smm_name"].ToString() + "</h4></td></tr>";
+                m+="<tr><td>商品价格：</td><td>"+da["smm_price"].ToString()+"元/"+da["smm_danwei"].ToString()+"</td></tr>";
+                m += "<tr><td>商品标签：</td><td>" + da["smm_tag"].ToString() + "</td></tr>";
+                m += "<tr><td colspan='2'>" + da["smm_about"].ToString() + "</td></tr>";
+
+                m+="</table>";
+                Label2.Text = m;
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Label3.Text = ClassMain.ShowInformation("成功放入购物车！");
+        }
+    }
+}

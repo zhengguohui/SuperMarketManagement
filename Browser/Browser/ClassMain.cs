@@ -78,12 +78,21 @@ namespace Website
             a += "</div>";
             return a;
         }
-        public static bool CheckLogin(string username,string password)
+        public static string ShowInformation(string str)
         {
-            ClassManageDataBase db=new ClassManageDataBase();
-            ClassEncryption ce=new ClassEncryption();
-            string sql="select smm_cardnumber from smm_customer where smm_cardnumber='"+username+"' and smm_password='"+ce.Encode(password)+"'";
-            int m=db.SQLNumber(sql);
+            string a = "";
+            a += "<div class='alert alert-info'>";
+            a += "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+            a += str;
+            a += "</div>";
+            return a;
+        }
+        public static bool CheckLogin(string username, string password)
+        {
+            ClassManageDataBase db = new ClassManageDataBase();
+            ClassEncryption ce = new ClassEncryption();
+            string sql = "select smm_cardnumber from smm_customer where smm_cardnumber='" + username + "' and smm_password='" + ce.Encode(password) + "'";
+            int m = db.SQLNumber(sql);
             if (m > 0)
             {
                 return true;
@@ -93,6 +102,57 @@ namespace Website
                 return false;
             }
         }
-      
+        public static string ShowGoods(string sql)
+        {
+            string re = "";
+            int sum=0;
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader dr = db.SQLReader(sql);
+            while (dr.Read())
+            {
+                if (sum == 0)
+                {
+                    re += "<div class='row-fluid'>";
+                    re += "<ul class='thumbnails'>";
+                }
+                sum++;
+               
+                re += "<li class='span4'>";
+                re += "<div class='thumbnail'>";
+                re += "<a target='_blank' href='showgood.aspx?id=" + dr["smm_number"].ToString() + "'>";
+                re += "<img data-src='holder.js/300x200' alt='300x200' style='width: 300px; height: 200px;'  src='include/goods/" + dr["smm_number"].ToString() + "." + dr["smm_picture"].ToString() + "' />";
+                re += "<div class='caption'>";
+                re += "<h4>"+dr["smm_name"].ToString()+"</h4>";
+                re += "<p>价格："+dr["smm_price"].ToString()+"元/"+dr["smm_danwei"].ToString()+"</p>";
+                re += "</div></a></div></li>";
+                if (sum == 3)
+                {
+                    re += "</ul>";
+                    re += "</div>";
+                }
+               
+                if (sum >=3)
+                {
+                    sum = 0;
+                }
+
+            }
+           
+            return re;
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
     }
 }
