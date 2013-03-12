@@ -117,6 +117,15 @@
             this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.tabSystem = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSetDataBase = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonSetSuperMarketName = new System.Windows.Forms.Button();
+            this.textBoxSuperMarketName = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonCustomerNewPassword = new System.Windows.Forms.Button();
+            this.textBoxCustomerNewPassword = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonSetFTP = new System.Windows.Forms.Button();
             this.textBoxFTPPassword = new System.Windows.Forms.TextBox();
@@ -125,15 +134,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonCustomerNewPassword = new System.Windows.Forms.Button();
-            this.textBoxCustomerNewPassword = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonSetDataBase = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonSetSuperMarketName = new System.Windows.Forms.Button();
-            this.textBoxSuperMarketName = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuQuit = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,6 +147,17 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tabNews = new System.Windows.Forms.TabPage();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.listView7 = new System.Windows.Forms.ListView();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxNewsSearch = new System.Windows.Forms.TextBox();
+            this.buttonNewsAll = new System.Windows.Forms.Button();
+            this.buttonNewsAdd = new System.Windows.Forms.Button();
+            this.buttonNewsEdit = new System.Windows.Forms.Button();
+            this.buttonNewsDelete = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabProduct.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -175,12 +186,16 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tabSystem.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tabNews.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -191,6 +206,7 @@
             this.tabControl1.Controls.Add(this.tabOrder);
             this.tabControl1.Controls.Add(this.tabCustom);
             this.tabControl1.Controls.Add(this.tabUser);
+            this.tabControl1.Controls.Add(this.tabNews);
             this.tabControl1.Controls.Add(this.tabSystem);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(60, 30);
@@ -199,7 +215,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(30, 3);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(807, 533);
+            this.tabControl1.Size = new System.Drawing.Size(896, 533);
             this.tabControl1.TabIndex = 0;
             // 
             // tabProduct
@@ -208,7 +224,7 @@
             this.tabProduct.Controls.Add(this.panel6);
             this.tabProduct.Location = new System.Drawing.Point(4, 34);
             this.tabProduct.Name = "tabProduct";
-            this.tabProduct.Size = new System.Drawing.Size(799, 495);
+            this.tabProduct.Size = new System.Drawing.Size(888, 495);
             this.tabProduct.TabIndex = 1;
             this.tabProduct.Text = "商品信息管理";
             this.tabProduct.UseVisualStyleBackColor = true;
@@ -219,7 +235,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(663, 495);
+            this.panel5.Size = new System.Drawing.Size(752, 495);
             this.panel5.TabIndex = 0;
             // 
             // listView3
@@ -228,7 +244,7 @@
             this.listView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView3.Location = new System.Drawing.Point(0, 0);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(663, 495);
+            this.listView3.Size = new System.Drawing.Size(752, 495);
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.DoubleClick += new System.EventHandler(this.listView3_DoubleClick);
@@ -240,7 +256,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.flowLayoutPanel3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(663, 0);
+            this.panel6.Location = new System.Drawing.Point(752, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(136, 495);
             this.panel6.TabIndex = 1;
@@ -567,7 +583,7 @@
             this.tabSell.Controls.Add(this.panel9);
             this.tabSell.Location = new System.Drawing.Point(4, 34);
             this.tabSell.Name = "tabSell";
-            this.tabSell.Size = new System.Drawing.Size(799, 495);
+            this.tabSell.Size = new System.Drawing.Size(888, 495);
             this.tabSell.TabIndex = 5;
             this.tabSell.Text = "销售管理";
             this.tabSell.UseVisualStyleBackColor = true;
@@ -578,7 +594,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(663, 495);
+            this.panel8.Size = new System.Drawing.Size(752, 495);
             this.panel8.TabIndex = 0;
             // 
             // listView5
@@ -587,7 +603,7 @@
             this.listView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView5.Location = new System.Drawing.Point(0, 0);
             this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(663, 495);
+            this.listView5.Size = new System.Drawing.Size(752, 495);
             this.listView5.TabIndex = 0;
             this.listView5.UseCompatibleStateImageBehavior = false;
             this.listView5.DoubleClick += new System.EventHandler(this.listView5_DoubleClick);
@@ -599,7 +615,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.flowLayoutPanel5);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(663, 0);
+            this.panel9.Location = new System.Drawing.Point(752, 0);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(136, 495);
             this.panel9.TabIndex = 1;
@@ -839,7 +855,7 @@
             this.tabCustom.Controls.Add(this.panel3);
             this.tabCustom.Location = new System.Drawing.Point(4, 34);
             this.tabCustom.Name = "tabCustom";
-            this.tabCustom.Size = new System.Drawing.Size(799, 495);
+            this.tabCustom.Size = new System.Drawing.Size(888, 495);
             this.tabCustom.TabIndex = 0;
             this.tabCustom.Text = "会员管理";
             this.tabCustom.UseVisualStyleBackColor = true;
@@ -850,7 +866,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(663, 495);
+            this.panel2.Size = new System.Drawing.Size(752, 495);
             this.panel2.TabIndex = 1;
             // 
             // listView2
@@ -859,7 +875,7 @@
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(663, 495);
+            this.listView2.Size = new System.Drawing.Size(752, 495);
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.DoubleClick += new System.EventHandler(this.listView2_DoubleClick);
@@ -871,7 +887,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.flowLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(663, 0);
+            this.panel3.Location = new System.Drawing.Point(752, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(136, 495);
             this.panel3.TabIndex = 0;
@@ -1000,7 +1016,7 @@
             this.tabUser.Controls.Add(this.panel1);
             this.tabUser.Location = new System.Drawing.Point(4, 34);
             this.tabUser.Name = "tabUser";
-            this.tabUser.Size = new System.Drawing.Size(799, 495);
+            this.tabUser.Size = new System.Drawing.Size(888, 495);
             this.tabUser.TabIndex = 3;
             this.tabUser.Text = "员工管理";
             this.tabUser.UseVisualStyleBackColor = true;
@@ -1012,7 +1028,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(663, 495);
+            this.panel4.Size = new System.Drawing.Size(752, 495);
             this.panel4.TabIndex = 1;
             // 
             // listView1
@@ -1021,7 +1037,7 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(663, 495);
+            this.listView1.Size = new System.Drawing.Size(752, 495);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
@@ -1033,7 +1049,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(663, 0);
+            this.panel1.Location = new System.Drawing.Point(752, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(136, 495);
             this.panel1.TabIndex = 0;
@@ -1075,7 +1091,8 @@
             "商品信息管理员",
             "入库员",
             "销售员",
-            "网络订单销售员"});
+            "网络订单销售员",
+            "新闻管理员"});
             this.comboBox1.Location = new System.Drawing.Point(6, 24);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
@@ -1125,9 +1142,9 @@
             // tabSystem
             // 
             this.tabSystem.Controls.Add(this.flowLayoutPanel7);
-            this.tabSystem.Location = new System.Drawing.Point(4, 34);
+            this.tabSystem.Location = new System.Drawing.Point(4, 64);
             this.tabSystem.Name = "tabSystem";
-            this.tabSystem.Size = new System.Drawing.Size(799, 495);
+            this.tabSystem.Size = new System.Drawing.Size(799, 465);
             this.tabSystem.TabIndex = 2;
             this.tabSystem.Text = "系统管理";
             this.tabSystem.UseVisualStyleBackColor = true;
@@ -1143,8 +1160,96 @@
             this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(799, 495);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(799, 465);
             this.flowLayoutPanel7.TabIndex = 4;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.buttonSetDataBase);
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(307, 93);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "设置数据库参数";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(269, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "设置成功后将会使用新的数据库参数重启本软件。";
+            // 
+            // buttonSetDataBase
+            // 
+            this.buttonSetDataBase.Location = new System.Drawing.Point(24, 29);
+            this.buttonSetDataBase.Name = "buttonSetDataBase";
+            this.buttonSetDataBase.Size = new System.Drawing.Size(260, 23);
+            this.buttonSetDataBase.TabIndex = 1;
+            this.buttonSetDataBase.Text = "设置数据库参数";
+            this.buttonSetDataBase.UseVisualStyleBackColor = true;
+            this.buttonSetDataBase.Click += new System.EventHandler(this.buttonSetDataBase_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonSetSuperMarketName);
+            this.groupBox1.Controls.Add(this.textBoxSuperMarketName);
+            this.groupBox1.Location = new System.Drawing.Point(319, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(307, 70);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "设置网络商店名称";
+            // 
+            // buttonSetSuperMarketName
+            // 
+            this.buttonSetSuperMarketName.Location = new System.Drawing.Point(209, 31);
+            this.buttonSetSuperMarketName.Name = "buttonSetSuperMarketName";
+            this.buttonSetSuperMarketName.Size = new System.Drawing.Size(75, 23);
+            this.buttonSetSuperMarketName.TabIndex = 1;
+            this.buttonSetSuperMarketName.Text = "设置";
+            this.buttonSetSuperMarketName.UseVisualStyleBackColor = true;
+            this.buttonSetSuperMarketName.Click += new System.EventHandler(this.buttonSetSuperMarketName_Click);
+            // 
+            // textBoxSuperMarketName
+            // 
+            this.textBoxSuperMarketName.Location = new System.Drawing.Point(18, 31);
+            this.textBoxSuperMarketName.Name = "textBoxSuperMarketName";
+            this.textBoxSuperMarketName.Size = new System.Drawing.Size(188, 21);
+            this.textBoxSuperMarketName.TabIndex = 0;
+            this.textBoxSuperMarketName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSuperMarketName_KeyDown);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonCustomerNewPassword);
+            this.groupBox3.Controls.Add(this.textBoxCustomerNewPassword);
+            this.groupBox3.Location = new System.Drawing.Point(6, 105);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(307, 70);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "设置会员初始密码";
+            // 
+            // buttonCustomerNewPassword
+            // 
+            this.buttonCustomerNewPassword.Location = new System.Drawing.Point(212, 29);
+            this.buttonCustomerNewPassword.Name = "buttonCustomerNewPassword";
+            this.buttonCustomerNewPassword.Size = new System.Drawing.Size(75, 23);
+            this.buttonCustomerNewPassword.TabIndex = 1;
+            this.buttonCustomerNewPassword.Text = "设置";
+            this.buttonCustomerNewPassword.UseVisualStyleBackColor = true;
+            this.buttonCustomerNewPassword.Click += new System.EventHandler(this.buttonCustomerNewPassword_Click);
+            // 
+            // textBoxCustomerNewPassword
+            // 
+            this.textBoxCustomerNewPassword.Location = new System.Drawing.Point(18, 31);
+            this.textBoxCustomerNewPassword.Name = "textBoxCustomerNewPassword";
+            this.textBoxCustomerNewPassword.Size = new System.Drawing.Size(188, 21);
+            this.textBoxCustomerNewPassword.TabIndex = 0;
+            this.textBoxCustomerNewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCustomerNewPassword_KeyDown);
             // 
             // groupBox4
             // 
@@ -1223,94 +1328,6 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "FTP地址：";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonCustomerNewPassword);
-            this.groupBox3.Controls.Add(this.textBoxCustomerNewPassword);
-            this.groupBox3.Location = new System.Drawing.Point(6, 105);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(307, 70);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "设置会员初始密码";
-            // 
-            // buttonCustomerNewPassword
-            // 
-            this.buttonCustomerNewPassword.Location = new System.Drawing.Point(212, 29);
-            this.buttonCustomerNewPassword.Name = "buttonCustomerNewPassword";
-            this.buttonCustomerNewPassword.Size = new System.Drawing.Size(75, 23);
-            this.buttonCustomerNewPassword.TabIndex = 1;
-            this.buttonCustomerNewPassword.Text = "设置";
-            this.buttonCustomerNewPassword.UseVisualStyleBackColor = true;
-            this.buttonCustomerNewPassword.Click += new System.EventHandler(this.buttonCustomerNewPassword_Click);
-            // 
-            // textBoxCustomerNewPassword
-            // 
-            this.textBoxCustomerNewPassword.Location = new System.Drawing.Point(18, 31);
-            this.textBoxCustomerNewPassword.Name = "textBoxCustomerNewPassword";
-            this.textBoxCustomerNewPassword.Size = new System.Drawing.Size(188, 21);
-            this.textBoxCustomerNewPassword.TabIndex = 0;
-            this.textBoxCustomerNewPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCustomerNewPassword_KeyDown);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.buttonSetDataBase);
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(307, 93);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "设置数据库参数";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "设置成功后将会使用新的数据库参数重启本软件。";
-            // 
-            // buttonSetDataBase
-            // 
-            this.buttonSetDataBase.Location = new System.Drawing.Point(24, 29);
-            this.buttonSetDataBase.Name = "buttonSetDataBase";
-            this.buttonSetDataBase.Size = new System.Drawing.Size(260, 23);
-            this.buttonSetDataBase.TabIndex = 1;
-            this.buttonSetDataBase.Text = "设置数据库参数";
-            this.buttonSetDataBase.UseVisualStyleBackColor = true;
-            this.buttonSetDataBase.Click += new System.EventHandler(this.buttonSetDataBase_Click_1);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonSetSuperMarketName);
-            this.groupBox1.Controls.Add(this.textBoxSuperMarketName);
-            this.groupBox1.Location = new System.Drawing.Point(319, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(307, 70);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "设置网络商店名称";
-            // 
-            // buttonSetSuperMarketName
-            // 
-            this.buttonSetSuperMarketName.Location = new System.Drawing.Point(209, 31);
-            this.buttonSetSuperMarketName.Name = "buttonSetSuperMarketName";
-            this.buttonSetSuperMarketName.Size = new System.Drawing.Size(75, 23);
-            this.buttonSetSuperMarketName.TabIndex = 1;
-            this.buttonSetSuperMarketName.Text = "设置";
-            this.buttonSetSuperMarketName.UseVisualStyleBackColor = true;
-            this.buttonSetSuperMarketName.Click += new System.EventHandler(this.buttonSetSuperMarketName_Click);
-            // 
-            // textBoxSuperMarketName
-            // 
-            this.textBoxSuperMarketName.Location = new System.Drawing.Point(18, 31);
-            this.textBoxSuperMarketName.Name = "textBoxSuperMarketName";
-            this.textBoxSuperMarketName.Size = new System.Drawing.Size(188, 21);
-            this.textBoxSuperMarketName.TabIndex = 0;
-            this.textBoxSuperMarketName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSuperMarketName_KeyDown);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1319,7 +1336,7 @@
             this.帮助HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(807, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(896, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1355,26 +1372,26 @@
             // MenuAccountInfomation
             // 
             this.MenuAccountInfomation.Name = "MenuAccountInfomation";
-            this.MenuAccountInfomation.Size = new System.Drawing.Size(138, 22);
+            this.MenuAccountInfomation.Size = new System.Drawing.Size(152, 22);
             this.MenuAccountInfomation.Text = "我的信息(&V)";
             this.MenuAccountInfomation.Click += new System.EventHandler(this.MenuAccountInfomation_Click);
             // 
             // MenuChangePassword
             // 
             this.MenuChangePassword.Name = "MenuChangePassword";
-            this.MenuChangePassword.Size = new System.Drawing.Size(138, 22);
+            this.MenuChangePassword.Size = new System.Drawing.Size(152, 22);
             this.MenuChangePassword.Text = "修改密码(&P)";
             this.MenuChangePassword.Click += new System.EventHandler(this.MenuChangePassword_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(135, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // MenuReLogin
             // 
             this.MenuReLogin.Name = "MenuReLogin";
-            this.MenuReLogin.Size = new System.Drawing.Size(138, 22);
+            this.MenuReLogin.Size = new System.Drawing.Size(152, 22);
             this.MenuReLogin.Text = "切换用户(&P)";
             this.MenuReLogin.Click += new System.EventHandler(this.MenuReLogin_Click);
             // 
@@ -1404,7 +1421,7 @@
             this.MenuTime});
             this.statusStrip1.Location = new System.Drawing.Point(0, 557);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(807, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(896, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1414,11 +1431,128 @@
             this.MenuTime.Size = new System.Drawing.Size(55, 17);
             this.MenuTime.Text = "显示时间";
             // 
+            // tabNews
+            // 
+            this.tabNews.Controls.Add(this.panel12);
+            this.tabNews.Controls.Add(this.panel13);
+            this.tabNews.Location = new System.Drawing.Point(4, 34);
+            this.tabNews.Name = "tabNews";
+            this.tabNews.Size = new System.Drawing.Size(888, 495);
+            this.tabNews.TabIndex = 7;
+            this.tabNews.Text = "新闻管理";
+            this.tabNews.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.listView7);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(752, 495);
+            this.panel12.TabIndex = 0;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.Control;
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.flowLayoutPanel8);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel13.Location = new System.Drawing.Point(752, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(136, 495);
+            this.panel13.TabIndex = 1;
+            // 
+            // listView7
+            // 
+            this.listView7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView7.Location = new System.Drawing.Point(0, 0);
+            this.listView7.Name = "listView7";
+            this.listView7.Size = new System.Drawing.Size(752, 495);
+            this.listView7.TabIndex = 0;
+            this.listView7.UseCompatibleStateImageBehavior = false;
+            this.listView7.DoubleClick += new System.EventHandler(this.listView7_DoubleClick);
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel8.Controls.Add(this.label19);
+            this.flowLayoutPanel8.Controls.Add(this.textBoxNewsSearch);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAll);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAdd);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsEdit);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsDelete);
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(3);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(134, 493);
+            this.flowLayoutPanel8.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 6);
+            this.label19.Margin = new System.Windows.Forms.Padding(3);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "新闻搜索：";
+            // 
+            // textBoxNewsSearch
+            // 
+            this.textBoxNewsSearch.Location = new System.Drawing.Point(6, 24);
+            this.textBoxNewsSearch.Name = "textBoxNewsSearch";
+            this.textBoxNewsSearch.Size = new System.Drawing.Size(121, 21);
+            this.textBoxNewsSearch.TabIndex = 1;
+            this.textBoxNewsSearch.TextChanged += new System.EventHandler(this.textBoxNewsSearch_TextChanged);
+            // 
+            // buttonNewsAll
+            // 
+            this.buttonNewsAll.Location = new System.Drawing.Point(6, 51);
+            this.buttonNewsAll.Name = "buttonNewsAll";
+            this.buttonNewsAll.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsAll.TabIndex = 2;
+            this.buttonNewsAll.Text = "所有新闻(&S)";
+            this.buttonNewsAll.UseVisualStyleBackColor = true;
+            this.buttonNewsAll.Click += new System.EventHandler(this.buttonNewsAll_Click);
+            // 
+            // buttonNewsAdd
+            // 
+            this.buttonNewsAdd.Location = new System.Drawing.Point(6, 80);
+            this.buttonNewsAdd.Name = "buttonNewsAdd";
+            this.buttonNewsAdd.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsAdd.TabIndex = 3;
+            this.buttonNewsAdd.Text = "添加新闻(&A)";
+            this.buttonNewsAdd.UseVisualStyleBackColor = true;
+            this.buttonNewsAdd.Click += new System.EventHandler(this.buttonNewsAdd_Click);
+            // 
+            // buttonNewsEdit
+            // 
+            this.buttonNewsEdit.Location = new System.Drawing.Point(6, 109);
+            this.buttonNewsEdit.Name = "buttonNewsEdit";
+            this.buttonNewsEdit.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsEdit.TabIndex = 4;
+            this.buttonNewsEdit.Text = "修改新闻(&E)";
+            this.buttonNewsEdit.UseVisualStyleBackColor = true;
+            this.buttonNewsEdit.Click += new System.EventHandler(this.buttonNewsEdit_Click);
+            // 
+            // buttonNewsDelete
+            // 
+            this.buttonNewsDelete.Location = new System.Drawing.Point(6, 138);
+            this.buttonNewsDelete.Name = "buttonNewsDelete";
+            this.buttonNewsDelete.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsDelete.TabIndex = 5;
+            this.buttonNewsDelete.Text = "删除新闻(&D)";
+            this.buttonNewsDelete.UseVisualStyleBackColor = true;
+            this.buttonNewsDelete.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 579);
+            this.ClientSize = new System.Drawing.Size(896, 579);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -1464,18 +1598,23 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tabSystem.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabNews.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1600,6 +1739,17 @@
         private System.Windows.Forms.Button buttonOrderAll;
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.TabPage tabNews;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.ListView listView7;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBoxNewsSearch;
+        private System.Windows.Forms.Button buttonNewsAll;
+        private System.Windows.Forms.Button buttonNewsAdd;
+        private System.Windows.Forms.Button buttonNewsEdit;
+        private System.Windows.Forms.Button buttonNewsDelete;
 
     }
 }

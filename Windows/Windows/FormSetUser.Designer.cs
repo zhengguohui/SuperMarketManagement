@@ -128,7 +128,8 @@
             "商品信息管理员",
             "入库员",
             "销售员",
-            "订单管理员"});
+            "订单管理员",
+            "新闻管理员"});
             this.comboBox1.Location = new System.Drawing.Point(83, 114);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);

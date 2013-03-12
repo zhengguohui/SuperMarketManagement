@@ -52,6 +52,10 @@ namespace SuperMarketManagement
             {
                 js = "订单管理员";
             }
+            else if (dr[1].ToString() == "7")
+            {
+                js = "新闻管理员";
+            }
             else
             {
                 js = "未知";

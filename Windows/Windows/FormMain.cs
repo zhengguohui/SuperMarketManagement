@@ -55,6 +55,7 @@ namespace SuperMarketManagement
                 SetBuy();
                 SetSell();
                 SetOrder();
+                SetNews();
             }
             else if (dr[1].ToString().Trim() == "2")
             {
@@ -64,6 +65,7 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabOrder);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
                 SetCustomer();
             }
             else if (dr[1].ToString().Trim() == "3")
@@ -74,6 +76,7 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabCustom);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
                 SetProduct();
             }
             else if (dr[1].ToString().Trim() == "4")
@@ -84,6 +87,7 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabCustom);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
                 SetBuy();
             }
             else if (dr[1].ToString().Trim() == "5")
@@ -94,6 +98,7 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabCustom);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
                 SetSell();
 
             }
@@ -105,7 +110,19 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabCustom);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
                 SetOrder();
+            }
+            else if (dr[1].ToString().Trim() == "7")
+            {
+                tabControl1.TabPages.Remove(tabProduct);
+                tabControl1.TabPages.Remove(tabBuy);
+                tabControl1.TabPages.Remove(tabSell);
+                tabControl1.TabPages.Remove(tabOrder);
+                tabControl1.TabPages.Remove(tabCustom);
+                tabControl1.TabPages.Remove(tabUser);
+                tabControl1.TabPages.Remove(tabSystem);
+                SetNews();
             }
             else
             {
@@ -116,6 +133,7 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabCustom);
                 tabControl1.TabPages.Remove(tabUser);
                 tabControl1.TabPages.Remove(tabSystem);
+                tabControl1.TabPages.Remove(tabNews);
             }
             db.Close();
 
@@ -232,6 +250,10 @@ namespace SuperMarketManagement
                 else if (dr[2].ToString() == "6")
                 {
                     js = "订单管理员";
+                }
+                else if (dr[2].ToString() == "7")
+                {
+                    js = "新闻管理员";
                 }
                 else
                 {
@@ -1529,6 +1551,122 @@ namespace SuperMarketManagement
             {
                 buttonSetFTP_Click(sender, e);
             }
+        }
+        private string SeleteNews()
+        {
+            string user = "";
+            try
+            {
+                user = listView7.SelectedItems[0].Tag.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("请选择新闻！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            return user;
+        }
+        private void SetNews()
+        {
+
+            listView7.GridLines = true;
+            listView7.FullRowSelect = true;
+            listView7.View = View.Details;
+            listView7.Scrollable = true;
+            listView7.MultiSelect = false;
+            listView7.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listView7.Columns.Add("日期", 200, HorizontalAlignment.Left);
+            listView7.Columns.Add("新闻标题", 300, HorizontalAlignment.Left);
+            RefreshNews();
+        }
+        private void RefreshNews()
+        {
+            listView7.Items.Clear();
+            try
+            {
+               
+                    string sql = String.Format("select smm_time,smm_title,id from smm_news where smm_title like '%{0}%' or smm_content like '%{1}%' order by smm_time desc", textBoxNewsSearch.Text,textBoxNewsSearch.Text);
+                    ClassManageDataBase db = new ClassManageDataBase();
+                    SqlDataReader dr = db.SQLReader(sql);
+                    while (dr.Read())
+                    {
+                        ListViewItem li = new ListViewItem();
+                        li.SubItems.Clear();
+                        li.SubItems[0].Text = dr[0].ToString();
+                        li.SubItems.Add(dr[1].ToString());
+
+                        li.Tag = dr[2].ToString();
+                        listView7.Items.Add(li);
+                    }
+
+                    
+                   
+
+            }
+            catch { }
+
+
+
+
+
+
+
+            try
+            {
+                listView5.Items[0].Selected = true;
+            }
+            catch { }
+
+        }
+
+        private void textBoxNewsSearch_TextChanged(object sender, EventArgs e)
+        {
+            RefreshNews();
+        }
+
+        private void buttonNewsAll_Click(object sender, EventArgs e)
+        {
+            textBoxNewsSearch.Text = "";
+            RefreshNews();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string user = SeleteNews();
+            if (user != "")
+            {
+                if (MessageBox.Show("您确定要删除吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                  
+                        string sql = String.Format("delete from smm_news where id='{0}'", user);
+                        ClassManageDataBase db = new ClassManageDataBase();
+                        db.SQLExecute(sql);
+                        RefreshNews();
+                        MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+            }
+        }
+
+        private void buttonNewsEdit_Click(object sender, EventArgs e)
+        {
+            string user = SeleteNews();
+            if (user != "")
+            {
+                new FormSetNews(0, user).ShowDialog();
+                RefreshNews();
+            }
+        }
+
+        private void buttonNewsAdd_Click(object sender, EventArgs e)
+        {
+            new FormSetNews(1, "").ShowDialog();
+            RefreshNews();
+        }
+
+        private void listView7_DoubleClick(object sender, EventArgs e)
+        {
+            buttonNewsEdit_Click(sender, e);
         }
     }
 }

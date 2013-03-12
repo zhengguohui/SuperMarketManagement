@@ -33,6 +33,8 @@ namespace Website
                     menu += "</ul>";
                     LabelLogin.Text = menu;
 
+                    LabelNewsList.Text = ClassMain.NewsList("select top 5 id,smm_title from smm_news order by smm_time desc");
+
         }
     }
 }

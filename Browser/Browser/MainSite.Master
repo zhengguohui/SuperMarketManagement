@@ -29,8 +29,8 @@
 
             .box .title {
                 padding: 10px;
-                padding-left:15px;
-                padding-right:15px;
+                padding-left: 15px;
+                padding-right: 15px;
                 background-color: #eee;
                 border-bottom: 1px solid #ddd;
                 background-image: url(include/title.jpg);
@@ -42,11 +42,11 @@
             }
     </style>
     <script language="javascript" type="text/javascript" src="include/jquery-1.9.1.js"></script>
-<script language="javascript" type="text/javascript" src="include/bootstrap/js/bootstrap.min.js"></script>
-     <script language="javascript" type="text/javascript" src="include/bootstrap-transition.js"></script>
-     <script language="javascript" type="text/javascript" src="bootstrap-collapse.js"></script>
-     <script language="javascript" type="text/javascript" src="include/bootstrap-tooltip.js"></script>
-     <script language="javascript" type="text/javascript" src="include/bootstrap-popover.js"></script>
+    <script language="javascript" type="text/javascript" src="include/bootstrap/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="include/bootstrap-transition.js"></script>
+    <script language="javascript" type="text/javascript" src="bootstrap-collapse.js"></script>
+    <script language="javascript" type="text/javascript" src="include/bootstrap-tooltip.js"></script>
+    <script language="javascript" type="text/javascript" src="include/bootstrap-popover.js"></script>
     <script language="javascript" type="text/javascript" src="include/bootstrap-alert.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -62,7 +62,7 @@
             <div class="container">
                 <a class="brand" href="default.aspx">
                     <asp:Label ID="LabelCompanyName" runat="server" Text="LabelCompanyName"></asp:Label></a>
-               <asp:Label ID="LabelLogin" runat="server" Text="LabelLogin"></asp:Label>
+                <asp:Label ID="LabelLogin" runat="server" Text="LabelLogin"></asp:Label>
                 <ul class="nav pull-right">
                     <form action="search.aspx" method="get" name="search" class="navbar-search pull-left form-search">
                         <div class="input-append">
@@ -80,11 +80,18 @@
 
         <div class="row">
             <div class="span3">
-                <div class="box"><div class="title">网站公告</div><div class="content">dgsdgsdfg</div></div>
-               <ul class="nav nav-list" style='padding:0px;'>
-                        <asp:Label ID="LabelGoodList" runat="server" Text="LabelGoodList"></asp:Label>
+                <div class="box">
+                    <div class="title">新闻</div>
+                    <div class="content">
+                        <asp:Label ID="LabelNewsList" runat="server" Text="LabelNewsList"></asp:Label>
+                        <div><a href="newslist.aspx" target="_blank" title="更多新闻...">更多新闻...</a></div>
 
-</ul>
+                    </div>
+                </div>
+                <ul class="nav nav-list" style='padding: 0px;'>
+                    <asp:Label ID="LabelGoodList" runat="server" Text="LabelGoodList"></asp:Label>
+
+                </ul>
             </div>
             <div class="span9">
                 <form id="form1" runat="server">
@@ -108,7 +115,7 @@
         $("a[data-toggle!=popover],input").tooltip({ placement: 'bottom' });
 
 
-       // (function (q) { q ? q.toggle() : function (d, j) { j = d.createElement('script'); j.async = true; j.src = '//ime.qq.com/fcgi-bin/getjs'; j.setAttribute('ime-cfg', 'lt=2'); d = d.getElementsByTagName('head')[0]; d.insertBefore(j, d.firstChild) }(document) })(window.QQWebIME)
-</script>
+        // (function (q) { q ? q.toggle() : function (d, j) { j = d.createElement('script'); j.async = true; j.src = '//ime.qq.com/fcgi-bin/getjs'; j.setAttribute('ime-cfg', 'lt=2'); d = d.getElementsByTagName('head')[0]; d.insertBefore(j, d.firstChild) }(document) })(window.QQWebIME)
+    </script>
 </body>
 </html>

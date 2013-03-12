@@ -153,6 +153,40 @@ namespace Website
 
 
         }
-
+        public static string NewsList(string sql)
+        {
+            string re = "";
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader dr = db.SQLReader(sql);
+            while (dr.Read())
+            {
+                re += "<div style='border-bottom:1px dashed #ccc; line-height:30px;'><a title='" + dr["smm_title"].ToString() + "' target='_blank' href='news.aspx?id=" + dr["id"].ToString() + "'>" + dr["smm_title"].ToString() + "</a></div>";
+            }
+            return re;
+        }
+        public static string ShowNewsTitle(string id)
+        {
+            string sql = "select smm_title from smm_news where id="+id;
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader dr = db.SQLReader(sql);
+            dr.Read();
+            return dr["smm_title"].ToString();
+        }
+        public static string ShowNewsContent(string id)
+        {
+            string sql = "select smm_content from smm_news where id=" + id;
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader dr = db.SQLReader(sql);
+            dr.Read();
+            return dr["smm_content"].ToString();
+        }
+        public static string ShowNewsTime(string id)
+        {
+            string sql = "select smm_time from smm_news where id=" + id;
+            ClassManageDataBase db = new ClassManageDataBase();
+            SqlDataReader dr = db.SQLReader(sql);
+            dr.Read();
+            return dr["smm_time"].ToString();
+        }
     }
 }

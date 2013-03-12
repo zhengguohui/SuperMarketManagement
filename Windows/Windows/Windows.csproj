@@ -131,6 +131,12 @@
     <Compile Include="FormSetDataBase.Designer.cs">
       <DependentUpon>FormSetDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSetNews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetNews.Designer.cs">
+      <DependentUpon>FormSetNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSetOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetDataBase.resx">
       <DependentUpon>FormSetDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetNews.resx">
+      <DependentUpon>FormSetNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetOrder.resx">
       <DependentUpon>FormSetOrder.cs</DependentUpon>
