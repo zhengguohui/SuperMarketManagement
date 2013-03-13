@@ -55,6 +55,7 @@ namespace Website
         {
             SqlCommand com = new SqlCommand(sql, con);
             int num = com.ExecuteNonQuery();
+            Close();
             if (num > 0)
             {
                 return true;
@@ -80,6 +81,7 @@ namespace Website
             {
                 a++;
             }
+            Close();
             return a;
         }
            

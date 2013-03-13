@@ -16,10 +16,22 @@ namespace Website
             {
                 Response.Redirect("default.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                TextBox1.Focus();
+            }
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            //this.TextBox1.Attributes.Add("value", Request["TextBox1"]);
+            //this.TextBox2.Attributes.Add("value", Request["TextBox2"]);
+            //this.TextBox3.Attributes.Add("value", Request["TextBox3"]);
+            TextBox1.Attributes["value"] = TextBox1.Text;
+            TextBox2.Attributes["value"] = TextBox2.Text;
+            TextBox3.Attributes["value"] = TextBox3.Text;
             ClassEncryption ce = new ClassEncryption();
             string t1=TextBox1.Text;
              string t2=TextBox2.Text;
@@ -63,6 +75,7 @@ namespace Website
                      Response.Redirect("account.aspx");
                  }
              }
+            
         }
     }
 }

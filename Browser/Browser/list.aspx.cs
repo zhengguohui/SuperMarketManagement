@@ -45,6 +45,8 @@ namespace Website
 
             if (Request.QueryString["edit"] != null)
             {
+                Button2.Visible = false;
+                Label4.Visible = false;
                 renum = TextBox1.Text;
                 string sql = "select smm_name from smm_product where smm_number='" + Request.QueryString["edit"] + "'";
                 ClassManageDataBase db1 = new ClassManageDataBase();
@@ -56,6 +58,7 @@ namespace Website
                 Button1.Visible = true;
                 TextBox1.Text = Request.QueryString["num"];
                 TextBox1.Focus();
+                db1.Close();
             }
             else
             {
@@ -71,7 +74,7 @@ namespace Website
 
             str += "<table class='table table-bordered table-hover'>";
             str += "<tr><th>商品</th><th>单价</th><th>数量</th><th>小结(元)</th><th>操作</th></tr>";
-            for (int k = 0; k < li.Count; k++)
+            for (int k = 0; k < li.Count; k=k+2)
             {
                 string sql = "select smm_name,smm_price,smm_danwei from smm_product where smm_number='" + li[k].ToString() + "'";
                 ClassManageDataBase db = new ClassManageDataBase();
@@ -88,6 +91,7 @@ namespace Website
                     str += "<td><a href='?del=" + li[k] + "&num=" + li[k + 1] + "'>删除</a>&nbsp;&nbsp;<a href='?edit=" + li[k] + "&num=" + li[k + 1] + "'>修改数量</a></td></tr>";
                 }
                 catch { }
+                db.Close();
             }
             str += "</table>";
             Label1.Text = str;
@@ -111,12 +115,14 @@ namespace Website
                 newCookie = cookie.Substring(1);
             }
             catch { }
+            
             string[] m = newCookie.Split(new char[] { ',' });
 
             ArrayList li = new ArrayList();
             int temp = 0;
             for (int i = 0; i < m.Length; i = i + 2)
             {
+                
                 if (temp == 0)
                 {
                     try
@@ -175,6 +181,8 @@ namespace Website
                     HttpCookie hc = new HttpCookie("good");
                     hc.Value = NewCookie;
                     Response.Cookies.Add(hc);
+                    Button2.Visible = true;
+                    Label4.Visible = true;
                     Response.Redirect("list.aspx");
                 }
                 else
@@ -203,7 +211,7 @@ namespace Website
                     OK = false;
                     str += dr["smm_name"].ToString() + "还剩" + dr["smm_sum"].ToString() + dr["smm_danwei"].ToString() + "，";
                 }
-
+                db.Close();
 
             }
             if (OK == true)
@@ -237,6 +245,7 @@ namespace Website
                         string sql1 = String.Format("insert into smm_order(smm_product,smm_sum,smm_price,smm_sell) values('{0}','{1}','{2}',{3})", li[j].ToString(), li[j + 1].ToString(), dr2[0].ToString(), dr[0].ToString());
                         ClassManageDataBase db1 = new ClassManageDataBase();
                         db1.SQLExecute(sql1);
+                        db2.Close();
                     }
                     if (Session["username"] != "")
                     {
@@ -250,7 +259,9 @@ namespace Website
                         string sql3 = String.Format("update smm_customer set smm_jifen={0} where smm_cardnumber='{1}'", n, Session["username"]);
                         ClassManageDataBase db3 = new ClassManageDataBase();
                         db3.SQLExecute(sql3);
+                        db4.Close();
                     }
+                    db.Close();
                     string NewCookie = "";
                     HttpCookie hc = new HttpCookie("good");
                     hc.Value = NewCookie;

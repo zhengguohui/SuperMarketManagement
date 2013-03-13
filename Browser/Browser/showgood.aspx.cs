@@ -34,6 +34,7 @@ namespace Website
                     Label3.Text = ClassMain.ShowAlert("该商品暂时无货！");
                 }
             }
+            db.Close();
             
         }
 

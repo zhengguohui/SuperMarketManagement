@@ -137,7 +137,7 @@ namespace Website
                 }
 
             }
-           
+            db.Close();
             return re;
 
 
@@ -162,6 +162,7 @@ namespace Website
             {
                 re += "<div style='border-bottom:1px dashed #ccc; line-height:30px;'><a title='" + dr["smm_title"].ToString() + "' target='_blank' href='news.aspx?id=" + dr["id"].ToString() + "'>" + dr["smm_title"].ToString() + "</a></div>";
             }
+            db.Close();
             return re;
         }
         public static string ShowNewsTitle(string id)
@@ -170,7 +171,9 @@ namespace Website
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             dr.Read();
-            return dr["smm_title"].ToString();
+            string a = dr["smm_title"].ToString();
+            db.Close();
+            return a;
         }
         public static string ShowNewsContent(string id)
         {
@@ -178,7 +181,9 @@ namespace Website
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             dr.Read();
-            return dr["smm_content"].ToString();
+            string a = dr["smm_content"].ToString();
+            db.Close();
+            return a;
         }
         public static string ShowNewsTime(string id)
         {
@@ -186,7 +191,9 @@ namespace Website
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             dr.Read();
-            return dr["smm_time"].ToString();
+            string a = dr["smm_time"].ToString();
+            db.Close();
+            return a;
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Website
                 Label5.Text = dr["smm_idcard"].ToString();
                 Label6.Text = dr["smm_address"].ToString();
                 Label00.Text = dr["smm_jifen"].ToString();
+                db.Close();
             }
             else
             {
