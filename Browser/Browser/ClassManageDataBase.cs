@@ -37,6 +37,10 @@ namespace Website
                 IsOpen = false;
             }
         }
+        public SqlConnection Con()
+        {
+            return con;
+        }
         public bool Open()
         {
             return IsOpen;
@@ -73,6 +77,7 @@ namespace Website
             SqlDataReader da = com.ExecuteReader();
             return da;
         }
+      
         public int SQLNumber(string sql)
         {
             SqlDataReader da = SQLReader(sql);

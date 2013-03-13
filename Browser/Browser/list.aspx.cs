@@ -85,7 +85,7 @@ namespace Website
                     double sum1 = Convert.ToDouble(li[k + 1]) * Convert.ToDouble(dr["smm_price"]);
                     sum += sum1;
                     str += "<tr><td><a target='_blank' title='" + dr["smm_name"].ToString() + "' href='showgood.aspx?id=" + li[k] + "'>" + dr["smm_name"].ToString() + "</a></td>";
-                    str += "<td>" + dr["smm_price"] + "元/" + dr["smm_danwei"] + "</td>";
+                    str += "<td>" + Convert.ToDouble(dr["smm_price"]).ToString("0.00") + "元/" + dr["smm_danwei"] + "</td>";
                     str += "<td>" + li[k + 1] + "</td>";
                     str += "<td>" + sum1 + "</td>";
                     str += "<td><a href='?del=" + li[k] + "&num=" + li[k + 1] + "'>删除</a>&nbsp;&nbsp;<a href='?edit=" + li[k] + "&num=" + li[k + 1] + "'>修改数量</a></td></tr>";
@@ -95,7 +95,7 @@ namespace Website
             }
             str += "</table>";
             Label1.Text = str;
-            Label4.Text = "总价：" + sum + "元";
+            Label4.Text = "总价：" + Convert.ToDouble(sum).ToString("0.00") +"元";
             //Label1.Text += Request.Cookies["good"].Value;
         }
         ArrayList get()

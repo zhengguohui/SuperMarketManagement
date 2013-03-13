@@ -20,7 +20,7 @@ namespace Website
                 Label1.Text="<img data-src='holder.js/300x200' alt='300x200' style='width: 300px; height: 200px;' src='include/goods/"+da["smm_number"].ToString()+"."+da["smm_picture"].ToString()+"'>";
                 string m= "<table class='table table-bordered table-hover'>";
                 m += "<tr><td colspan='2'><h4>" + da["smm_name"].ToString() + "</h4></td></tr>";
-                m+="<tr><td>商品价格：</td><td>"+da["smm_price"].ToString()+"元/"+da["smm_danwei"].ToString()+"</td></tr>";
+                m+="<tr><td>商品价格：</td><td>"+Convert.ToDouble(da["smm_price"]).ToString("0.00")+"元/"+da["smm_danwei"].ToString()+"</td></tr>";
                 m += "<tr><td>商品标签：</td><td>" + da["smm_tag"].ToString() + "</td></tr>";
                 m += "<tr><td colspan='2'>" + da["smm_about"].ToString() + "</td></tr>";
 
