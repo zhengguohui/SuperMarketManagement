@@ -260,7 +260,7 @@ namespace Website
             db1.Close();
             return str;
         }
-        private static string ShowProgress(string a)
+       public  static string ShowProgress(string a)
         {
             string str="";
             str += "<div class='progress progress-striped' style='width:300px'>";

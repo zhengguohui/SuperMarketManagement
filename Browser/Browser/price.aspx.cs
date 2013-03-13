@@ -15,7 +15,7 @@ namespace Website
             {
                 Response.Redirect("default.aspx");
             }
-            this.Title = ClassMain.GetPageTitle("价格趋势");
+            
 
             string sql = "select smm_name from smm_product where smm_number='"+Request.QueryString["id"]+"'";
             ClassManageDataBase db = new ClassManageDataBase();
@@ -23,6 +23,7 @@ namespace Website
             dr.Read();
 
             Label1.Text = "价格趋势："+dr["smm_name"].ToString();
+            this.Title = ClassMain.GetPageTitle(dr["smm_name"].ToString()+"的价格趋势");
             db.Close();
 
             Label2.Text = ClassMain.ShowPriceList(Session["username"].ToString(), Request.QueryString["id"].ToString());

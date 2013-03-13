@@ -52,6 +52,7 @@
     <Content Include="account.aspx" />
     <Content Include="cpassowrd.aspx" />
     <Content Include="editaccount.aspx" />
+    <Content Include="money.aspx" />
     <Content Include="orderlist.aspx" />
     <Content Include="list.aspx" />
     <Content Include="login.aspx" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="editaccount.aspx.designer.cs">
       <DependentUpon>editaccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="money.aspx.cs">
+      <DependentUpon>money.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="money.aspx.designer.cs">
+      <DependentUpon>money.aspx</DependentUpon>
     </Compile>
     <Compile Include="orderlist.aspx.cs">
       <DependentUpon>orderlist.aspx</DependentUpon>

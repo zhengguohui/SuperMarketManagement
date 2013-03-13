@@ -6,7 +6,7 @@
 <ul class="nav" >
 <li><a href="account.aspx" title="我的账户">我的账户</a></li>
 <li><a href="orderlist.aspx" title="订单列表">订单列表</a></li>
-<li><a href="fenxi.aspx" title="消费金额统计">消费金额统计</a></li>
+<li><a href="money.aspx" title="消费金额查询">消费金额查询</a></li>
 </ul>
 </div></div>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>

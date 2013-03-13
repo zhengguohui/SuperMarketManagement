@@ -204,13 +204,17 @@ namespace Website
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
                 dr.Read();
-                if (Convert.ToInt32(dr["smm_sum"]) < Convert.ToInt32(li[i + 1]))
+                try
                 {
+                    if (Convert.ToInt32(dr["smm_sum"]) < Convert.ToInt32(li[i + 1]))
+                    {
 
 
-                    OK = false;
-                    str += dr["smm_name"].ToString() + "还剩" + dr["smm_sum"].ToString() + dr["smm_danwei"].ToString() + "，";
+                        OK = false;
+                        str += dr["smm_name"].ToString() + "还剩" + dr["smm_sum"].ToString() + dr["smm_danwei"].ToString() + "，";
+                    }
                 }
+                catch { }
                 db.Close();
 
             }
