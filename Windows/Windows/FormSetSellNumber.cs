@@ -14,18 +14,18 @@ namespace SuperMarketManagement
         string name;
         public string number;
 
-        public FormSetSellNumber(string a,string b)
+        public FormSetSellNumber(string a, string b)
         {
             InitializeComponent();
             name = a;
             number = b;
- 
+
         }
 
         private void FormSetSellNumber_Load(object sender, EventArgs e)
         {
             this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size; 
+            this.MinimumSize = this.Size;
             textBox1.Text = name;
             textBox2.Text = number;
             textBox2.SelectAll();
@@ -40,7 +40,7 @@ namespace SuperMarketManagement
         private void button1_Click(object sender, EventArgs e)
         {
 
-           int  a = Convert.ToInt32(number);
+            int a = Convert.ToInt32(number);
             try
             {
                 a = Convert.ToInt32(textBox2.Text);
@@ -57,7 +57,7 @@ namespace SuperMarketManagement
                 textBox2.SelectAll();
                 textBox2.Focus();
             }
-            
+
         }
     }
 }

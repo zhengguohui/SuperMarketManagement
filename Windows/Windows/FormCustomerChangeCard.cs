@@ -43,7 +43,7 @@ namespace SuperMarketManagement
                 }
                 else
                 {
-                    string sql1 = String.Format("update smm_customer set smm_cardnumber='{0}' where id={1}",textBox2.Text,cardnumber);
+                    string sql1 = String.Format("update smm_customer set smm_cardnumber='{0}' where id={1}", textBox2.Text, cardnumber);
                     ClassManageDataBase db1 = new ClassManageDataBase();
                     db1.SQLExecute(sql1);
                     MessageBox.Show("换卡成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -55,7 +55,7 @@ namespace SuperMarketManagement
         private void FormCustomerChangeCard_Load(object sender, EventArgs e)
         {
             ClassManageDataBase db = new ClassManageDataBase();
-            string sql = String.Format("select smm_cardnumber from smm_customer where id={0}",cardnumber);
+            string sql = String.Format("select smm_cardnumber from smm_customer where id={0}", cardnumber);
             SqlDataReader dr = db.SQLReader(sql);
             dr.Read();
             textBox1.Text = dr[0].ToString();

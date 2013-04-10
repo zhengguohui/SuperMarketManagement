@@ -74,7 +74,7 @@ namespace Website
 
             str += "<table class='table table-bordered table-hover'>";
             str += "<tr><th>商品</th><th>单价</th><th>数量</th><th>小结(元)</th><th>操作</th></tr>";
-            for (int k = 0; k < li.Count; k=k+2)
+            for (int k = 0; k < li.Count; k = k + 2)
             {
                 string sql = "select smm_name,smm_price,smm_danwei from smm_product where smm_number='" + li[k].ToString() + "'";
                 ClassManageDataBase db = new ClassManageDataBase();
@@ -95,7 +95,7 @@ namespace Website
             }
             str += "</table>";
             Label1.Text = str;
-            Label4.Text = "总价：" + Convert.ToDouble(sum).ToString("0.00") +"元";
+            Label4.Text = "总价：" + Convert.ToDouble(sum).ToString("0.00") + "元";
             //Label1.Text += Request.Cookies["good"].Value;
         }
         ArrayList get()
@@ -103,7 +103,7 @@ namespace Website
             string cookie = "";
             try
             {
-               cookie = Request.Cookies["good"].Value;
+                cookie = Request.Cookies["good"].Value;
             }
             catch
             {
@@ -115,14 +115,14 @@ namespace Website
                 newCookie = cookie.Substring(1);
             }
             catch { }
-            
+
             string[] m = newCookie.Split(new char[] { ',' });
 
             ArrayList li = new ArrayList();
             int temp = 0;
             for (int i = 0; i < m.Length; i = i + 2)
             {
-                
+
                 if (temp == 0)
                 {
                     try
@@ -235,21 +235,24 @@ namespace Website
 
                     for (int j = 0; j < li.Count; j = j + 2)
                     {
-                        string sql2 = String.Format("select smm_price,smm_sum from smm_product where smm_number='{0}'", li[j].ToString());
-                        ClassManageDataBase db2 = new ClassManageDataBase();
-                        SqlDataReader dr2 = db2.SQLReader(sql2);
-                        dr2.Read();
+                        try
+                        {
+                            string sql2 = String.Format("select smm_price,smm_sum from smm_product where smm_number='{0}'", li[j].ToString());
+                            ClassManageDataBase db2 = new ClassManageDataBase();
+                            SqlDataReader dr2 = db2.SQLReader(sql2);
+                            dr2.Read();
+                            int s = Convert.ToInt32(dr2[1]);
+                            s = s - Convert.ToInt32(li[j + 1]);
+                            string sql5 = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", s, li[j]);
+                            ClassManageDataBase db5 = new ClassManageDataBase();
+                            db5.SQLExecute(sql5);
 
-                        int s = Convert.ToInt32(dr2[1]);
-                        s = s - Convert.ToInt32(li[j + 1]);
-                        string sql5 = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", s, li[j]);
-                        ClassManageDataBase db5 = new ClassManageDataBase();
-                        db5.SQLExecute(sql5);
-
-                        string sql1 = String.Format("insert into smm_order(smm_product,smm_sum,smm_price,smm_sell) values('{0}','{1}','{2}',{3})", li[j].ToString(), li[j + 1].ToString(), dr2[0].ToString(), dr[0].ToString());
-                        ClassManageDataBase db1 = new ClassManageDataBase();
-                        db1.SQLExecute(sql1);
-                        db2.Close();
+                            string sql1 = String.Format("insert into smm_order(smm_product,smm_sum,smm_price,smm_sell) values('{0}','{1}','{2}',{3})", li[j].ToString(), li[j + 1].ToString(), dr2[0].ToString(), dr[0].ToString());
+                            ClassManageDataBase db1 = new ClassManageDataBase();
+                            db1.SQLExecute(sql1);
+                            db2.Close();
+                        }
+                        catch { }
                     }
                     if (Session["username"] != "")
                     {

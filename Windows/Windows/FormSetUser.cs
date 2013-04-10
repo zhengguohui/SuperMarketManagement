@@ -61,62 +61,62 @@ namespace SuperMarketManagement
                     textBoxNickName.SelectAll();
                     textBoxNickName.Focus();
                 }
-            else if (textBoxPassWord.Text == "")
-            {
-                MessageBox.Show("请输入密码！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxPassWord.SelectAll();
-                textBoxPassWord.Focus();
-            }
-            else if (textBoxRePassword.Text == "")
-            {
-                MessageBox.Show("请输入密码重复！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxRePassword.SelectAll();
-                textBoxRePassword.Focus();
-            }
-            else if (textBoxRePassword.Text != textBoxPassWord.Text)
-            {
-                MessageBox.Show("两次密码输入不同！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxRePassword.SelectAll();
-                textBoxRePassword.Focus();
-            }
-            else
-            {
-
-                string sql="";
-  
-                if (action == 0)
+                else if (textBoxPassWord.Text == "")
                 {
-                    string sql1 = String.Format("select smm_username from smm_user where smm_username='{0}'",textBoxUserName.Text);
-                    ClassManageDataBase db1 = new ClassManageDataBase();
-                    SqlDataReader dr = db1.SQLReader(sql1);
-                    if (dr.Read())
+                    MessageBox.Show("请输入密码！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxPassWord.SelectAll();
+                    textBoxPassWord.Focus();
+                }
+                else if (textBoxRePassword.Text == "")
+                {
+                    MessageBox.Show("请输入密码重复！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxRePassword.SelectAll();
+                    textBoxRePassword.Focus();
+                }
+                else if (textBoxRePassword.Text != textBoxPassWord.Text)
+                {
+                    MessageBox.Show("两次密码输入不同！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxRePassword.SelectAll();
+                    textBoxRePassword.Focus();
+                }
+                else
+                {
+
+                    string sql = "";
+
+                    if (action == 0)
                     {
-                        MessageBox.Show("账户重复！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        textBoxUserName.SelectAll();
-                        textBoxUserName.Focus();
+                        string sql1 = String.Format("select smm_username from smm_user where smm_username='{0}'", textBoxUserName.Text);
+                        ClassManageDataBase db1 = new ClassManageDataBase();
+                        SqlDataReader dr = db1.SQLReader(sql1);
+                        if (dr.Read())
+                        {
+                            MessageBox.Show("账户重复！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            textBoxUserName.SelectAll();
+                            textBoxUserName.Focus();
+                        }
+                        else
+                        {
+                            sql = String.Format("insert into smm_user(smm_username,smm_password,smm_tag,smm_nickname) values('{0}','{1}','{2}','{3}')", textBoxUserName.Text, ce.Encode(textBoxPassWord.Text), comboBox1.SelectedIndex + 1, textBoxNickName.Text);
+                            ClassManageDataBase db = new ClassManageDataBase();
+                            db.SQLExecute(sql);
+                            this.Close();
+                        }
+
+
+
                     }
-                    else
+                    if (action == 1)
                     {
-                        sql = String.Format("insert into smm_user(smm_username,smm_password,smm_tag,smm_nickname) values('{0}','{1}','{2}','{3}')", textBoxUserName.Text, ce.Encode(textBoxPassWord.Text), comboBox1.SelectedIndex + 1, textBoxNickName.Text);
+                        sql = String.Format("update smm_user set smm_password='{0}',smm_nickname='{1}',smm_tag='{2}' where smm_username='{3}'", ce.Encode(textBoxPassWord.Text), textBoxNickName.Text, comboBox1.SelectedIndex + 1, textBoxUserName.Text);
                         ClassManageDataBase db = new ClassManageDataBase();
                         db.SQLExecute(sql);
                         this.Close();
                     }
-                    
-                 
-                
-                }
-                if (action == 1)
-                {
-                    sql = String.Format("update smm_user set smm_password='{0}',smm_nickname='{1}',smm_tag='{2}' where smm_username='{3}'", ce.Encode(textBoxPassWord.Text), textBoxNickName.Text, comboBox1.SelectedIndex + 1, textBoxUserName.Text);
-                    ClassManageDataBase db = new ClassManageDataBase();
-                        db.SQLExecute(sql);
-                        this.Close();
-                }
-                
-                
 
-            }
+
+
+                }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

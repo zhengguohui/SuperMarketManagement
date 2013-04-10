@@ -8,7 +8,7 @@ namespace Website
 {
     public partial class login : System.Web.UI.Page
     {
-        bool autologin=true;
+        bool autologin = true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Login"] == "1")
@@ -20,7 +20,7 @@ namespace Website
 
             if (autologin == true)
             {
-                if (Convert.ToInt32(Request.QueryString["u"])==0 || Convert.ToInt32(Request.QueryString["p"]) == 0)
+                if (Convert.ToInt32(Request.QueryString["u"]) == 0 || Convert.ToInt32(Request.QueryString["p"]) == 0)
                 {
 
                 }
@@ -47,10 +47,10 @@ namespace Website
             else
             {
                 Login(TextBoxLoginUsername.Text.Trim(), TextBoxLoginPassword.Text.Trim());
-         
+
             }
         }
-        void Login(string a,string b)
+        void Login(string a, string b)
         {
             if (ClassMain.CheckLogin(a, b))
             {

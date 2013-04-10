@@ -42,17 +42,17 @@ namespace SuperMarketManagement
             if (action == 1)
             {
                 this.Text = "修改商品信息";
-                string sql = String.Format("select smm_name,smm_danwei,smm_tag,smm_about,smm_price,smm_picture from smm_product where smm_number='{0}'",number);
+                string sql = String.Format("select smm_name,smm_danwei,smm_tag,smm_about,smm_price,smm_picture from smm_product where smm_number='{0}'", number);
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
                 dr.Read();
-                textBoxNumber.Text=number;
+                textBoxNumber.Text = number;
                 textBoxNumber.Enabled = false;
-                textBoxName.Text=dr[0].ToString();
-                comboBoxDanwei.Text=dr[1].ToString();
-                textBoxTag.Text=dr[2].ToString();
-                textBoxAbout.Text=dr[3].ToString();
-                textBoxPrice.Text=dr[4].ToString();
+                textBoxName.Text = dr[0].ToString();
+                comboBoxDanwei.Text = dr[1].ToString();
+                textBoxTag.Text = dr[2].ToString();
+                textBoxAbout.Text = dr[3].ToString();
+                textBoxPrice.Text = dr[4].ToString();
                 oldkzm = dr[5].ToString();
 
                 if (oldkzm != "")
@@ -108,7 +108,7 @@ namespace SuperMarketManagement
                 {
 
                     price = Convert.ToDouble(textBoxPrice.Text);
-                   
+
                 }
                 catch
                 {
@@ -134,7 +134,7 @@ namespace SuperMarketManagement
                             string kzm = oldkzm;
                             if (upload == true)
                             {
-                                
+
                                 ClassManageFTP cmt = new ClassManageFTP();
                                 kzm = uploadpicture.Substring(uploadpicture.LastIndexOf(".") + 1, (uploadpicture.Length - uploadpicture.LastIndexOf(".") - 1));
                                 string newFile = textBoxNumber.Text + "." + kzm;
@@ -146,10 +146,10 @@ namespace SuperMarketManagement
                             }
 
 
-                            
 
 
-                            string sql1 = String.Format("insert into smm_product (smm_number,smm_name,smm_danwei,smm_about,smm_tag,smm_price,smm_sum,smm_picture) values('{0}','{1}','{2}','{3}','{4}','{5}',0,'{6}')", textBoxNumber.Text, textBoxName.Text, comboBoxDanwei.Text, textBoxAbout.Text, textBoxTag.Text, price,kzm);
+
+                            string sql1 = String.Format("insert into smm_product (smm_number,smm_name,smm_danwei,smm_about,smm_tag,smm_price,smm_sum,smm_picture) values('{0}','{1}','{2}','{3}','{4}','{5}',0,'{6}')", textBoxNumber.Text, textBoxName.Text, comboBoxDanwei.Text, textBoxAbout.Text, textBoxTag.Text, price, kzm);
                             ClassManageDataBase db1 = new ClassManageDataBase();
                             db1.SQLExecute(sql1);
                             this.Close();
@@ -159,7 +159,7 @@ namespace SuperMarketManagement
                     }
                     if (action == 1)
                     {
-                        
+
 
                         string kzm = oldkzm;
                         if (upload == true)
@@ -179,7 +179,7 @@ namespace SuperMarketManagement
                             // cmt.download("20030505.jpg","d:\\1.jpg");
                         }
 
-                        string sql = String.Format("update smm_product set smm_name='{0}',smm_danwei='{1}',smm_about='{2}',smm_tag='{3}',smm_price='{4}',smm_picture='{5}' where smm_number='{6}'",textBoxName.Text,comboBoxDanwei.Text,textBoxAbout.Text,textBoxTag.Text,price,kzm,number);
+                        string sql = String.Format("update smm_product set smm_name='{0}',smm_danwei='{1}',smm_about='{2}',smm_tag='{3}',smm_price='{4}',smm_picture='{5}' where smm_number='{6}'", textBoxName.Text, comboBoxDanwei.Text, textBoxAbout.Text, textBoxTag.Text, price, kzm, number);
                         ClassManageDataBase db = new ClassManageDataBase();
                         db.SQLExecute(sql);
                         this.Close();
@@ -235,15 +235,15 @@ namespace SuperMarketManagement
             openFileDialog1.Title = "打开图片";
             openFileDialog1.Filter = "所有图片文件|*.jpg;*.png;*.gif;*.bmp";
             openFileDialog1.FileName = "";
-            if (openFileDialog1.ShowDialog()==DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 upload = true;
                 uploadpicture = openFileDialog1.FileName;
 
                 pictureBox1.Image = Image.FromFile(uploadpicture);
 
-                
-                
+
+
 
 
 

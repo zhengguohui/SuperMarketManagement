@@ -1517,7 +1517,7 @@ namespace SuperMarketManagement
         {
             if (e.KeyCode == Keys.Enter)
             {
-                buttonSetSuperMarketName_Click(sender,  e);
+                buttonSetSuperMarketName_Click(sender, e);
             }
         }
 
@@ -1584,23 +1584,23 @@ namespace SuperMarketManagement
             listView7.Items.Clear();
             try
             {
-               
-                    string sql = String.Format("select smm_time,smm_title,id from smm_news where smm_title like '%{0}%' or smm_content like '%{1}%' order by smm_time desc", textBoxNewsSearch.Text,textBoxNewsSearch.Text);
-                    ClassManageDataBase db = new ClassManageDataBase();
-                    SqlDataReader dr = db.SQLReader(sql);
-                    while (dr.Read())
-                    {
-                        ListViewItem li = new ListViewItem();
-                        li.SubItems.Clear();
-                        li.SubItems[0].Text = dr[0].ToString();
-                        li.SubItems.Add(dr[1].ToString());
 
-                        li.Tag = dr[2].ToString();
-                        listView7.Items.Add(li);
-                    }
+                string sql = String.Format("select smm_time,smm_title,id from smm_news where smm_title like '%{0}%' or smm_content like '%{1}%' order by smm_time desc", textBoxNewsSearch.Text, textBoxNewsSearch.Text);
+                ClassManageDataBase db = new ClassManageDataBase();
+                SqlDataReader dr = db.SQLReader(sql);
+                while (dr.Read())
+                {
+                    ListViewItem li = new ListViewItem();
+                    li.SubItems.Clear();
+                    li.SubItems[0].Text = dr[0].ToString();
+                    li.SubItems.Add(dr[1].ToString());
 
-                    
-                   
+                    li.Tag = dr[2].ToString();
+                    listView7.Items.Add(li);
+                }
+
+
+
 
             }
             catch { }
@@ -1637,13 +1637,13 @@ namespace SuperMarketManagement
             {
                 if (MessageBox.Show("您确定要删除吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                  
-                        string sql = String.Format("delete from smm_news where id='{0}'", user);
-                        ClassManageDataBase db = new ClassManageDataBase();
-                        db.SQLExecute(sql);
-                        RefreshNews();
-                        MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
+                    string sql = String.Format("delete from smm_news where id='{0}'", user);
+                    ClassManageDataBase db = new ClassManageDataBase();
+                    db.SQLExecute(sql);
+                    RefreshNews();
+                    MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
         }

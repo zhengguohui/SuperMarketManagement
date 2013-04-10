@@ -22,7 +22,7 @@ namespace SuperMarketManagement
         {
             this.MaximumSize = this.Size;
             this.MinimumSize = this.Size;
-            string sql = String.Format("select smm_jifen from smm_customer where id={0}",cardnumber);
+            string sql = String.Format("select smm_jifen from smm_customer where id={0}", cardnumber);
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             dr.Read();

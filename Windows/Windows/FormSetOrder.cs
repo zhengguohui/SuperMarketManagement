@@ -55,7 +55,7 @@ namespace SuperMarketManagement
                 textBox2.SelectAll();
                 textBox2.Focus();
             }
-           
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

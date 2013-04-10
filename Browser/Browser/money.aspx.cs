@@ -20,15 +20,15 @@ namespace Website
             Button1_Click(sender, e);
 
             int max = 1;
-            ArrayList li=new ArrayList();
+            ArrayList li = new ArrayList();
             string[] m1 = d3.Split(new char[] { '/' });
             string[] m2 = d4.Split(new char[] { '/' });
             for (int i = Convert.ToInt32(m2[0]); i >= Convert.ToInt32(m1[0]); i--)
             {
-                for (int j = 12 ;j >= 1; j--)
+                for (int j = 12; j >= 1; j--)
                 {
-                    bool ok=true;
-                    if(i==Convert.ToInt32(m1[0]))
+                    bool ok = true;
+                    if (i == Convert.ToInt32(m1[0]))
                     {
                         if (j < Convert.ToInt32(m1[1]))
                         {
@@ -44,12 +44,12 @@ namespace Website
                     }
                     if (ok)
                     {
-                      
-                        string a=i+"/"+j+"/1 00:00:01";
-                        string b=i+"/"+(j+1)+"/1 00:00:00";
-                        string sql="select sum(smm_price) from smm_sell where (smm_time >= '"+a+"' and smm_time <= '"+b+"') and smm_customer='"+Session["username"]+"'";
-                    ClassManageDataBase db=new ClassManageDataBase();
-                        SqlDataReader dr=db.SQLReader(sql);
+
+                        string a = i + "/" + j + "/1 00:00:01";
+                        string b = i + "/" + (j + 1) + "/1 00:00:00";
+                        string sql = "select sum(smm_price) from smm_sell where (smm_time >= '" + a + "' and smm_time <= '" + b + "') and smm_customer='" + Session["username"] + "'";
+                        ClassManageDataBase db = new ClassManageDataBase();
+                        SqlDataReader dr = db.SQLReader(sql);
                         try
                         {
                             if (dr.Read())
@@ -72,16 +72,16 @@ namespace Website
                     }
                 }
             }
-            string str="";
-            for(int x=0;x<li.Count;x=x+2)
+            string str = "";
+            for (int x = 0; x < li.Count; x = x + 2)
             {
-                str+="<tr><td>";
-                str+=li[x].ToString();
-                str+="</td><td>";
-                str+=li[x+1].ToString()+"元";
-                str+="</td><td>";
-                str+=ClassMain.ShowProgress((Convert.ToInt32(Convert.ToDouble(li[x+1])*100/max)).ToString());
-                str+="</td></tr>";
+                str += "<tr><td>";
+                str += li[x].ToString();
+                str += "</td><td>";
+                str += li[x + 1].ToString() + "元";
+                str += "</td><td>";
+                str += ClassMain.ShowProgress((Convert.ToInt32(Convert.ToDouble(li[x + 1]) * 100 / max)).ToString());
+                str += "</td></tr>";
             }
             Label1.Text = str;
 

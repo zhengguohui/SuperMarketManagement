@@ -13,7 +13,7 @@ namespace SuperMarketManagement
     {
         int action;
         string id;
-        public FormSetNews(int a,string b)
+        public FormSetNews(int a, string b)
         {
             InitializeComponent();
             action = a;
@@ -31,7 +31,7 @@ namespace SuperMarketManagement
             else
             {
                 this.Text = "修改新闻";
-                string sql =String.Format("select smm_title,smm_content from smm_news where id={0}",id);
+                string sql = String.Format("select smm_title,smm_content from smm_news where id={0}", id);
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
                 dr.Read();
@@ -61,14 +61,14 @@ namespace SuperMarketManagement
             }
             else
             {
-                string sql="";
+                string sql = "";
                 if (action == 1)
                 {
                     sql = String.Format("insert into smm_news (smm_title,smm_content,smm_time) values ('{0}','{1}','{2}')", textBox1.Text, textBox2.Text, DateTime.Now);
                 }
                 else
                 {
-                    sql = String.Format("update smm_news set smm_title='{0}',smm_content='{1}' where id={2}",textBox1.Text,textBox2.Text,id);
+                    sql = String.Format("update smm_news set smm_title='{0}',smm_content='{1}' where id={2}", textBox1.Text, textBox2.Text, id);
                 }
                 ClassManageDataBase db = new ClassManageDataBase();
                 db.SQLExecute(sql);

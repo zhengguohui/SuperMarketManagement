@@ -213,35 +213,36 @@ namespace Website
 
             while (dr1.Read())
             {
-                string sql2 = "select smm_name,smm_danwei from smm_product where smm_number='" + dr1["smm_product"].ToString() + "'";
-                ClassManageDataBase db2 = new ClassManageDataBase();
-                SqlConnection con = db2.Con();
-                SqlCommand com = new SqlCommand(sql2, con);
-                SqlDataReader dr2 = com.ExecuteReader();
-                dr2.Read();
-
-                string proname = dr2["smm_name"].ToString();
-                string prodanwei = dr2["smm_danwei"].ToString();
-                dr2.Close();
-                con.Close();
-                db2.Close();
-                str += String.Format("<div><a target='_blank' href='price.aspx?id={0}'>{1}</a>：{2}元 × {3} {4}</div>", dr1["smm_product"], proname, Convert.ToDouble(dr1["smm_price"]).ToString("0.00"), dr1["smm_sum"], prodanwei);
+                try
+                {
+                    string sql2 = "select smm_name,smm_danwei from smm_product where smm_number='" + dr1["smm_product"].ToString() + "'";
+                    ClassManageDataBase db2 = new ClassManageDataBase();
+                    SqlConnection con = db2.Con();
+                    SqlCommand com = new SqlCommand(sql2, con);
+                    SqlDataReader dr2 = com.ExecuteReader();
+                    dr2.Read();
+                    string proname = dr2["smm_name"].ToString();
+                    string prodanwei = dr2["smm_danwei"].ToString();
+                    dr2.Close();
+                    con.Close();
+                    db2.Close();
+                    str += String.Format("<div><a target='_blank' href='price.aspx?id={0}'>{1}</a>：{2}元 × {3} {4}</div>", dr1["smm_product"], proname, Convert.ToDouble(dr1["smm_price"]).ToString("0.00"), dr1["smm_sum"], prodanwei);
+                }
+                catch { }
 
             }
             db1.Close();
             return str;
         }
 
-
         public static string ShowPriceList(string user, string id)
         {
-            string sqlx = "select smm_price from smm_order where smm_product='"+id+"' order by smm_price desc";
+            string sqlx = "select smm_price from smm_order where smm_product='" + id + "' order by smm_price desc";
             ClassManageDataBase dbx = new ClassManageDataBase();
             SqlDataReader drx = dbx.SQLReader(sqlx);
             drx.Read();
             double x = Convert.ToDouble(drx["smm_price"]);
             dbx.Close();
-
             string str = "";
             string sql1 = "select id,smm_time from smm_sell where smm_customer='" + user + "' order by id desc";
             ClassManageDataBase db1 = new ClassManageDataBase();
@@ -263,15 +264,13 @@ namespace Website
                 dr2.Close();
                 con.Close();
                 db2.Close();
-                
-
             }
             db1.Close();
             return str;
         }
-       public  static string ShowProgress(string a)
+        public static string ShowProgress(string a)
         {
-            string str="";
+            string str = "";
             str += "<div class='progress progress-striped' style='width:300px'>";
             str += "<div class='bar' style='width: " + a + "%;'></div>";
             str += "</div>";

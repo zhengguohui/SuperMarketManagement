@@ -28,7 +28,7 @@ namespace SuperMarketManagement
             Application.DoEvents();
             ClassManageDataBase cmdb = new ClassManageDataBase();
             bool a = cmdb.Open();
-           
+
             Application.DoEvents();
             if (a == false)
             {

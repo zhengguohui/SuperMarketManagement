@@ -19,7 +19,7 @@ namespace Website
                 SqlDataReader dr = db.SQLReader(sql);
                 dr.Read();
                 Label0.Text = Session["username"].ToString();
-                Label1.Text=dr["smm_name"].ToString();
+                Label1.Text = dr["smm_name"].ToString();
                 string sex = "";
                 if (dr["smm_sex"].ToString() == "1")
                 {

@@ -22,16 +22,16 @@ namespace Website
             {
                 s = "<li style='padding-top:0px;'><a href='list.aspx'><span class='badge badge-warning'>" + sum + "</span></a></li>";
             }
-            string menu="";
-             menu+="<ul class='nav'>";
-                    menu+="<li class='divider-vertical'></li>";
-                    menu+="<li class='active1'><a href='default.aspx'>首页</a></li>";
-                  //menu+="<li class='divider-vertical'></li>";
-                    
+            string menu = "";
+            menu += "<ul class='nav'>";
+            menu += "<li class='divider-vertical'></li>";
+            menu += "<li class='active1'><a href='default.aspx'>首页</a></li>";
+            //menu+="<li class='divider-vertical'></li>";
+
             if (Session["Login"] == "1")
             {
-                 menu+="<li><a href='account.aspx'>我的账户</a></li>";
-                 menu += "<li><a href='logout.aspx'>退出</a></li>";
+                menu += "<li><a href='account.aspx'>我的账户</a></li>";
+                menu += "<li><a href='logout.aspx'>退出</a></li>";
 
             }
             else
@@ -40,10 +40,10 @@ namespace Website
             }
             menu += "<li><a href='list.aspx'>购物车</a></li>";
             menu += s;
-                    menu += "</ul>";
-                    LabelLogin.Text = menu;
+            menu += "</ul>";
+            LabelLogin.Text = menu;
 
-                    LabelNewsList.Text = ClassMain.NewsList("select top 5 id,smm_title from smm_news order by smm_time desc");
+            LabelNewsList.Text = ClassMain.NewsList("select top 5 id,smm_title from smm_news order by smm_time desc");
 
         }
 
