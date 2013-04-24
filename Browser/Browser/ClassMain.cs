@@ -51,7 +51,6 @@ namespace Website
             re += "<div class='accordion' id='accordion2'>";
             foreach (string[] a in goods)
             {
-
                 re += "<div class='accordion-group' style='-webkit-border-radius: 0px;-moz-border-radius: 0px;border-radius: 0px;'>";
                 re += "<div class='accordion-heading' style='background-image: url(include/title.jpg); background-repeat: repeat-x;'>";
                 re += "<a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion2' href='#collapse" + sum.ToString() + "'>";
@@ -76,7 +75,6 @@ namespace Website
             }
             re += "</div>";
             return re;
-            //
         }
         public static string ShowAlert(string str)
         {
@@ -125,7 +123,6 @@ namespace Website
                     re += "<ul class='thumbnails'>";
                 }
                 sum++;
-
                 re += "<li class='span4'>";
                 re += "<div class='thumbnail'>";
                 re += "<a target='_blank' href='showgood.aspx?id=" + dr["smm_number"].ToString() + "'>";
@@ -144,23 +141,9 @@ namespace Website
                 {
                     sum = 0;
                 }
-
             }
             db.Close();
             return re;
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
         public static string NewsList(string sql)
         {
@@ -210,7 +193,6 @@ namespace Website
             string sql1 = "select smm_product,smm_sum,smm_price from smm_order where smm_sell='" + id + "'";
             ClassManageDataBase db1 = new ClassManageDataBase();
             SqlDataReader dr1 = db1.SQLReader(sql1);
-
             while (dr1.Read())
             {
                 try
@@ -229,12 +211,10 @@ namespace Website
                     str += String.Format("<div><a target='_blank' href='price.aspx?id={0}'>{1}</a>：{2}元 × {3} {4}</div>", dr1["smm_product"], proname, Convert.ToDouble(dr1["smm_price"]).ToString("0.00"), dr1["smm_sum"], prodanwei);
                 }
                 catch { }
-
             }
             db1.Close();
             return str;
         }
-
         public static string ShowPriceList(string user, string id)
         {
             string sqlx = "select smm_price from smm_order where smm_product='" + id + "' order by smm_price desc";
@@ -247,7 +227,6 @@ namespace Website
             string sql1 = "select id,smm_time from smm_sell where smm_customer='" + user + "' order by id desc";
             ClassManageDataBase db1 = new ClassManageDataBase();
             SqlDataReader dr1 = db1.SQLReader(sql1);
-
             while (dr1.Read())
             {
                 string sql2 = "select smm_price from smm_order where smm_sell='" + dr1["id"].ToString() + "' and smm_product='" + id + "'";
@@ -257,7 +236,6 @@ namespace Website
                 SqlDataReader dr2 = com.ExecuteReader();
                 if (dr2.Read())
                 {
-
                     double proprice = Convert.ToDouble(dr2["smm_price"]);
                     str += String.Format("<tr><td>{0}</td><td>{1}元</td><td>{2}</td></tr>", dr1["smm_time"], proprice.ToString("0.00"), ShowProgress((proprice * 100 / x).ToString()));
                 }

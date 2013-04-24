@@ -34,15 +34,12 @@ namespace Website
                 {
                     xx += "," + li1[mm];
                 }
-
                 string NewCookie = xx;
                 HttpCookie hc = new HttpCookie("good");
                 hc.Value = NewCookie;
                 Response.Cookies.Add(hc);
                 Response.Redirect("list.aspx");
             }
-
-
             if (Request.QueryString["edit"] != null)
             {
                 Button2.Visible = false;
@@ -52,7 +49,6 @@ namespace Website
                 ClassManageDataBase db1 = new ClassManageDataBase();
                 SqlDataReader dr1 = db1.SQLReader(sql);
                 dr1.Read();
-
                 Label2.Text = "您要修改“" + dr1["smm_name"] + "”的数量：";
                 TextBox1.Visible = true;
                 Button1.Visible = true;
@@ -66,12 +62,8 @@ namespace Website
                 TextBox1.Visible = false;
                 Button1.Visible = false;
             }
-
-
-
             ArrayList li = get();
             string str = "";
-
             str += "<table class='table table-bordered table-hover'>";
             str += "<tr><th>商品</th><th>单价</th><th>数量</th><th>小结(元)</th><th>操作</th></tr>";
             for (int k = 0; k < li.Count; k = k + 2)
@@ -115,14 +107,11 @@ namespace Website
                 newCookie = cookie.Substring(1);
             }
             catch { }
-
             string[] m = newCookie.Split(new char[] { ',' });
-
             ArrayList li = new ArrayList();
             int temp = 0;
             for (int i = 0; i < m.Length; i = i + 2)
             {
-
                 if (temp == 0)
                 {
                     try
@@ -139,11 +128,8 @@ namespace Website
                     int x = 0;
                     for (int j = 0; j < li.Count; j = j + 2)
                     {
-
-
                         if (m[i].ToString().Trim() == li[j].ToString().Trim())
                         {
-
                             li[j + 1] = (Convert.ToInt32(li[j + 1]) + Convert.ToInt32(m[i + 1])).ToString();
                             x = 1;
                         }
@@ -159,7 +145,6 @@ namespace Website
                         li.Add(m[i + 1]);
                     }
                 }
-
             }
             return li;
         }
@@ -199,7 +184,6 @@ namespace Website
             string str = "";
             for (int i = 0; i < li.Count; i = i + 2)
             {
-
                 string sql = "select smm_sum,smm_name,smm_danwei from smm_product where smm_number='" + li[i] + "'";
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
@@ -208,15 +192,12 @@ namespace Website
                 {
                     if (Convert.ToInt32(dr["smm_sum"]) < Convert.ToInt32(li[i + 1]))
                     {
-
-
                         OK = false;
                         str += dr["smm_name"].ToString() + "还剩" + dr["smm_sum"].ToString() + dr["smm_danwei"].ToString() + "，";
                     }
                 }
                 catch { }
                 db.Close();
-
             }
             if (OK == true)
             {
@@ -232,7 +213,6 @@ namespace Website
                     SqlDataReader dr = db.SQLReader(sql);
                     dr.Read();
                     dr[0].ToString();
-
                     for (int j = 0; j < li.Count; j = j + 2)
                     {
                         try
@@ -246,7 +226,6 @@ namespace Website
                             string sql5 = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", s, li[j]);
                             ClassManageDataBase db5 = new ClassManageDataBase();
                             db5.SQLExecute(sql5);
-
                             string sql1 = String.Format("insert into smm_order(smm_product,smm_sum,smm_price,smm_sell) values('{0}','{1}','{2}',{3})", li[j].ToString(), li[j + 1].ToString(), dr2[0].ToString(), dr[0].ToString());
                             ClassManageDataBase db1 = new ClassManageDataBase();
                             db1.SQLExecute(sql1);
@@ -262,7 +241,6 @@ namespace Website
                         dr4.Read();
                         int m = Convert.ToInt32(dr4[0]);
                         int n = m + Convert.ToInt32(sum);
-
                         string sql3 = String.Format("update smm_customer set smm_jifen={0} where smm_cardnumber='{1}'", n, Session["username"]);
                         ClassManageDataBase db3 = new ClassManageDataBase();
                         db3.SQLExecute(sql3);

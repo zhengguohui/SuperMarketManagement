@@ -27,7 +27,6 @@ namespace SuperMarketManagement
         public string GetSettings(string a)
         {
             return Settings(a);
-
         }
         public void SetSettings(string a, string b)
         {
@@ -37,6 +36,4 @@ namespace SuperMarketManagement
             db.SQLExecute(sql);
         }
     }
-
-
 }

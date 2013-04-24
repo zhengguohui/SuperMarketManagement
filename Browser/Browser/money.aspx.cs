@@ -18,7 +18,6 @@ namespace Website
             }
             this.Title = ClassMain.GetPageTitle("消费金额查询");
             Button1_Click(sender, e);
-
             int max = 1;
             ArrayList li = new ArrayList();
             string[] m1 = d3.Split(new char[] { '/' });
@@ -44,7 +43,6 @@ namespace Website
                     }
                     if (ok)
                     {
-
                         string a = i + "/" + j + "/1 00:00:01";
                         string b = i + "/" + (j + 1) + "/1 00:00:00";
                         string sql = "select sum(smm_price) from smm_sell where (smm_time >= '" + a + "' and smm_time <= '" + b + "') and smm_customer='" + Session["username"] + "'";
@@ -84,7 +82,6 @@ namespace Website
                 str += "</td></tr>";
             }
             Label1.Text = str;
-
         }
         string d3 = Convert.ToDateTime("2013/1/1").ToShortDateString() + " 00:00:00";
         string d4 = Convert.ToDateTime(DateTime.Now).ToShortDateString() + " 23:59:59";

@@ -43,7 +43,6 @@ namespace Website
                 TextBox4.Text = dr["smm_idcard"].ToString();
                 TextBox5.Text = dr["smm_address"].ToString();
                 db.Close();
-
             }
             else { Response.Redirect("default.aspx"); }
         }
@@ -67,7 +66,6 @@ namespace Website
             ClassManageDataBase db = new ClassManageDataBase();
             db.SQLExecute(sql);
             Response.Redirect("account.aspx");
-
         }
     }
 }

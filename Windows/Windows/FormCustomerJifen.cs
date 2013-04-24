@@ -63,8 +63,6 @@ namespace SuperMarketManagement
                 MessageBox.Show("积分成功扣除！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-
-
         }
     }
 }

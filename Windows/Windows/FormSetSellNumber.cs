@@ -19,7 +19,6 @@ namespace SuperMarketManagement
             InitializeComponent();
             name = a;
             number = b;
-
         }
 
         private void FormSetSellNumber_Load(object sender, EventArgs e)
@@ -39,7 +38,6 @@ namespace SuperMarketManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             int a = Convert.ToInt32(number);
             try
             {
@@ -57,7 +55,6 @@ namespace SuperMarketManagement
                 textBox2.SelectAll();
                 textBox2.Focus();
             }
-
         }
     }
 }

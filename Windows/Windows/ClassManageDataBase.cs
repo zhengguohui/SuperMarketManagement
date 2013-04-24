@@ -60,11 +60,9 @@ namespace SuperMarketManagement
             {
                 return false;
             }
-
         }
         public SqlDataReader SQLReader(string sql)
         {
-
             SqlCommand com = new SqlCommand(sql, con);
             SqlDataReader da = com.ExecuteReader();
             return da;
@@ -79,6 +77,5 @@ namespace SuperMarketManagement
             }
             return a;
         }
-
     }
 }

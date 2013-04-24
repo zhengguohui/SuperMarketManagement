@@ -115,6 +115,17 @@
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.buttonUpdateUser = new System.Windows.Forms.Button();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
+            this.tabNews = new System.Windows.Forms.TabPage();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.listView7 = new System.Windows.Forms.ListView();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxNewsSearch = new System.Windows.Forms.TextBox();
+            this.buttonNewsAll = new System.Windows.Forms.Button();
+            this.buttonNewsAdd = new System.Windows.Forms.Button();
+            this.buttonNewsEdit = new System.Windows.Forms.Button();
+            this.buttonNewsDelete = new System.Windows.Forms.Button();
             this.tabSystem = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -147,17 +158,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tabNews = new System.Windows.Forms.TabPage();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.listView7 = new System.Windows.Forms.ListView();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBoxNewsSearch = new System.Windows.Forms.TextBox();
-            this.buttonNewsAll = new System.Windows.Forms.Button();
-            this.buttonNewsAdd = new System.Windows.Forms.Button();
-            this.buttonNewsEdit = new System.Windows.Forms.Button();
-            this.buttonNewsDelete = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabProduct.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -184,6 +184,10 @@
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tabNews.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
             this.tabSystem.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -192,10 +196,6 @@
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.tabNews.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -363,7 +363,7 @@
             this.tabBuy.Controls.Add(this.panel7);
             this.tabBuy.Location = new System.Drawing.Point(4, 34);
             this.tabBuy.Name = "tabBuy";
-            this.tabBuy.Size = new System.Drawing.Size(799, 495);
+            this.tabBuy.Size = new System.Drawing.Size(888, 495);
             this.tabBuy.TabIndex = 4;
             this.tabBuy.Text = "入库管理";
             this.tabBuy.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@
             this.panelProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelProduct.Location = new System.Drawing.Point(0, 0);
             this.panelProduct.Name = "panelProduct";
-            this.panelProduct.Size = new System.Drawing.Size(663, 495);
+            this.panelProduct.Size = new System.Drawing.Size(752, 495);
             this.panelProduct.TabIndex = 1;
             // 
             // listView4
@@ -383,7 +383,7 @@
             this.listView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView4.Location = new System.Drawing.Point(0, 0);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(663, 495);
+            this.listView4.Size = new System.Drawing.Size(752, 495);
             this.listView4.TabIndex = 0;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listView4_KeyDown);
@@ -394,7 +394,7 @@
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.flowLayoutPanel4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(663, 0);
+            this.panel7.Location = new System.Drawing.Point(752, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(136, 495);
             this.panel7.TabIndex = 0;
@@ -655,6 +655,7 @@
             this.textBoxCardNumber.Name = "textBoxCardNumber";
             this.textBoxCardNumber.Size = new System.Drawing.Size(121, 21);
             this.textBoxCardNumber.TabIndex = 1;
+            this.textBoxCardNumber.TextChanged += new System.EventHandler(this.textBoxCardNumber_TextChanged);
             this.textBoxCardNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCardNumber_KeyDown);
             // 
             // label16
@@ -733,7 +734,7 @@
             this.tabOrder.Controls.Add(this.panel11);
             this.tabOrder.Location = new System.Drawing.Point(4, 34);
             this.tabOrder.Name = "tabOrder";
-            this.tabOrder.Size = new System.Drawing.Size(799, 495);
+            this.tabOrder.Size = new System.Drawing.Size(888, 495);
             this.tabOrder.TabIndex = 6;
             this.tabOrder.Text = "订单管理";
             this.tabOrder.UseVisualStyleBackColor = true;
@@ -744,7 +745,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(663, 495);
+            this.panel10.Size = new System.Drawing.Size(752, 495);
             this.panel10.TabIndex = 0;
             // 
             // listView6
@@ -753,7 +754,7 @@
             this.listView6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView6.Location = new System.Drawing.Point(0, 0);
             this.listView6.Name = "listView6";
-            this.listView6.Size = new System.Drawing.Size(663, 495);
+            this.listView6.Size = new System.Drawing.Size(752, 495);
             this.listView6.TabIndex = 0;
             this.listView6.UseCompatibleStateImageBehavior = false;
             this.listView6.DoubleClick += new System.EventHandler(this.listView6_DoubleClick);
@@ -764,7 +765,7 @@
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.flowLayoutPanel6);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(663, 0);
+            this.panel11.Location = new System.Drawing.Point(752, 0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(136, 495);
             this.panel11.TabIndex = 1;
@@ -1139,12 +1140,129 @@
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
             this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
+            // tabNews
+            // 
+            this.tabNews.Controls.Add(this.panel12);
+            this.tabNews.Controls.Add(this.panel13);
+            this.tabNews.Location = new System.Drawing.Point(4, 34);
+            this.tabNews.Name = "tabNews";
+            this.tabNews.Size = new System.Drawing.Size(888, 495);
+            this.tabNews.TabIndex = 7;
+            this.tabNews.Text = "新闻管理";
+            this.tabNews.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.listView7);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(752, 495);
+            this.panel12.TabIndex = 0;
+            // 
+            // listView7
+            // 
+            this.listView7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView7.Location = new System.Drawing.Point(0, 0);
+            this.listView7.Name = "listView7";
+            this.listView7.Size = new System.Drawing.Size(752, 495);
+            this.listView7.TabIndex = 0;
+            this.listView7.UseCompatibleStateImageBehavior = false;
+            this.listView7.DoubleClick += new System.EventHandler(this.listView7_DoubleClick);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.SystemColors.Control;
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.flowLayoutPanel8);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel13.Location = new System.Drawing.Point(752, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(136, 495);
+            this.panel13.TabIndex = 1;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel8.Controls.Add(this.label19);
+            this.flowLayoutPanel8.Controls.Add(this.textBoxNewsSearch);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAll);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAdd);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsEdit);
+            this.flowLayoutPanel8.Controls.Add(this.buttonNewsDelete);
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(3);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(134, 493);
+            this.flowLayoutPanel8.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 6);
+            this.label19.Margin = new System.Windows.Forms.Padding(3);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "新闻搜索：";
+            // 
+            // textBoxNewsSearch
+            // 
+            this.textBoxNewsSearch.Location = new System.Drawing.Point(6, 24);
+            this.textBoxNewsSearch.Name = "textBoxNewsSearch";
+            this.textBoxNewsSearch.Size = new System.Drawing.Size(121, 21);
+            this.textBoxNewsSearch.TabIndex = 1;
+            this.textBoxNewsSearch.TextChanged += new System.EventHandler(this.textBoxNewsSearch_TextChanged);
+            // 
+            // buttonNewsAll
+            // 
+            this.buttonNewsAll.Location = new System.Drawing.Point(6, 51);
+            this.buttonNewsAll.Name = "buttonNewsAll";
+            this.buttonNewsAll.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsAll.TabIndex = 2;
+            this.buttonNewsAll.Text = "所有新闻(&S)";
+            this.buttonNewsAll.UseVisualStyleBackColor = true;
+            this.buttonNewsAll.Click += new System.EventHandler(this.buttonNewsAll_Click);
+            // 
+            // buttonNewsAdd
+            // 
+            this.buttonNewsAdd.Location = new System.Drawing.Point(6, 80);
+            this.buttonNewsAdd.Name = "buttonNewsAdd";
+            this.buttonNewsAdd.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsAdd.TabIndex = 3;
+            this.buttonNewsAdd.Text = "添加新闻(&A)";
+            this.buttonNewsAdd.UseVisualStyleBackColor = true;
+            this.buttonNewsAdd.Click += new System.EventHandler(this.buttonNewsAdd_Click);
+            // 
+            // buttonNewsEdit
+            // 
+            this.buttonNewsEdit.Location = new System.Drawing.Point(6, 109);
+            this.buttonNewsEdit.Name = "buttonNewsEdit";
+            this.buttonNewsEdit.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsEdit.TabIndex = 4;
+            this.buttonNewsEdit.Text = "修改新闻(&E)";
+            this.buttonNewsEdit.UseVisualStyleBackColor = true;
+            this.buttonNewsEdit.Click += new System.EventHandler(this.buttonNewsEdit_Click);
+            // 
+            // buttonNewsDelete
+            // 
+            this.buttonNewsDelete.Location = new System.Drawing.Point(6, 138);
+            this.buttonNewsDelete.Name = "buttonNewsDelete";
+            this.buttonNewsDelete.Size = new System.Drawing.Size(121, 23);
+            this.buttonNewsDelete.TabIndex = 5;
+            this.buttonNewsDelete.Text = "删除新闻(&D)";
+            this.buttonNewsDelete.UseVisualStyleBackColor = true;
+            this.buttonNewsDelete.Click += new System.EventHandler(this.button4_Click);
+            // 
             // tabSystem
             // 
             this.tabSystem.Controls.Add(this.flowLayoutPanel7);
-            this.tabSystem.Location = new System.Drawing.Point(4, 64);
+            this.tabSystem.Location = new System.Drawing.Point(4, 34);
             this.tabSystem.Name = "tabSystem";
-            this.tabSystem.Size = new System.Drawing.Size(799, 465);
+            this.tabSystem.Size = new System.Drawing.Size(888, 495);
             this.tabSystem.TabIndex = 2;
             this.tabSystem.Text = "系统管理";
             this.tabSystem.UseVisualStyleBackColor = true;
@@ -1160,7 +1278,7 @@
             this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(799, 465);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(888, 495);
             this.flowLayoutPanel7.TabIndex = 4;
             // 
             // groupBox2
@@ -1372,26 +1490,26 @@
             // MenuAccountInfomation
             // 
             this.MenuAccountInfomation.Name = "MenuAccountInfomation";
-            this.MenuAccountInfomation.Size = new System.Drawing.Size(152, 22);
+            this.MenuAccountInfomation.Size = new System.Drawing.Size(138, 22);
             this.MenuAccountInfomation.Text = "我的信息(&V)";
             this.MenuAccountInfomation.Click += new System.EventHandler(this.MenuAccountInfomation_Click);
             // 
             // MenuChangePassword
             // 
             this.MenuChangePassword.Name = "MenuChangePassword";
-            this.MenuChangePassword.Size = new System.Drawing.Size(152, 22);
+            this.MenuChangePassword.Size = new System.Drawing.Size(138, 22);
             this.MenuChangePassword.Text = "修改密码(&P)";
             this.MenuChangePassword.Click += new System.EventHandler(this.MenuChangePassword_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(135, 6);
             // 
             // MenuReLogin
             // 
             this.MenuReLogin.Name = "MenuReLogin";
-            this.MenuReLogin.Size = new System.Drawing.Size(152, 22);
+            this.MenuReLogin.Size = new System.Drawing.Size(138, 22);
             this.MenuReLogin.Text = "切换用户(&P)";
             this.MenuReLogin.Click += new System.EventHandler(this.MenuReLogin_Click);
             // 
@@ -1430,123 +1548,6 @@
             this.MenuTime.Name = "MenuTime";
             this.MenuTime.Size = new System.Drawing.Size(55, 17);
             this.MenuTime.Text = "显示时间";
-            // 
-            // tabNews
-            // 
-            this.tabNews.Controls.Add(this.panel12);
-            this.tabNews.Controls.Add(this.panel13);
-            this.tabNews.Location = new System.Drawing.Point(4, 34);
-            this.tabNews.Name = "tabNews";
-            this.tabNews.Size = new System.Drawing.Size(888, 495);
-            this.tabNews.TabIndex = 7;
-            this.tabNews.Text = "新闻管理";
-            this.tabNews.UseVisualStyleBackColor = true;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.listView7);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(752, 495);
-            this.panel12.TabIndex = 0;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.SystemColors.Control;
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.flowLayoutPanel8);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(752, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(136, 495);
-            this.panel13.TabIndex = 1;
-            // 
-            // listView7
-            // 
-            this.listView7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView7.Location = new System.Drawing.Point(0, 0);
-            this.listView7.Name = "listView7";
-            this.listView7.Size = new System.Drawing.Size(752, 495);
-            this.listView7.TabIndex = 0;
-            this.listView7.UseCompatibleStateImageBehavior = false;
-            this.listView7.DoubleClick += new System.EventHandler(this.listView7_DoubleClick);
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel8.Controls.Add(this.label19);
-            this.flowLayoutPanel8.Controls.Add(this.textBoxNewsSearch);
-            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAll);
-            this.flowLayoutPanel8.Controls.Add(this.buttonNewsAdd);
-            this.flowLayoutPanel8.Controls.Add(this.buttonNewsEdit);
-            this.flowLayoutPanel8.Controls.Add(this.buttonNewsDelete);
-            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(134, 493);
-            this.flowLayoutPanel8.TabIndex = 0;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 6);
-            this.label19.Margin = new System.Windows.Forms.Padding(3);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 12);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "新闻搜索：";
-            // 
-            // textBoxNewsSearch
-            // 
-            this.textBoxNewsSearch.Location = new System.Drawing.Point(6, 24);
-            this.textBoxNewsSearch.Name = "textBoxNewsSearch";
-            this.textBoxNewsSearch.Size = new System.Drawing.Size(121, 21);
-            this.textBoxNewsSearch.TabIndex = 1;
-            this.textBoxNewsSearch.TextChanged += new System.EventHandler(this.textBoxNewsSearch_TextChanged);
-            // 
-            // buttonNewsAll
-            // 
-            this.buttonNewsAll.Location = new System.Drawing.Point(6, 51);
-            this.buttonNewsAll.Name = "buttonNewsAll";
-            this.buttonNewsAll.Size = new System.Drawing.Size(121, 23);
-            this.buttonNewsAll.TabIndex = 2;
-            this.buttonNewsAll.Text = "所有新闻(&S)";
-            this.buttonNewsAll.UseVisualStyleBackColor = true;
-            this.buttonNewsAll.Click += new System.EventHandler(this.buttonNewsAll_Click);
-            // 
-            // buttonNewsAdd
-            // 
-            this.buttonNewsAdd.Location = new System.Drawing.Point(6, 80);
-            this.buttonNewsAdd.Name = "buttonNewsAdd";
-            this.buttonNewsAdd.Size = new System.Drawing.Size(121, 23);
-            this.buttonNewsAdd.TabIndex = 3;
-            this.buttonNewsAdd.Text = "添加新闻(&A)";
-            this.buttonNewsAdd.UseVisualStyleBackColor = true;
-            this.buttonNewsAdd.Click += new System.EventHandler(this.buttonNewsAdd_Click);
-            // 
-            // buttonNewsEdit
-            // 
-            this.buttonNewsEdit.Location = new System.Drawing.Point(6, 109);
-            this.buttonNewsEdit.Name = "buttonNewsEdit";
-            this.buttonNewsEdit.Size = new System.Drawing.Size(121, 23);
-            this.buttonNewsEdit.TabIndex = 4;
-            this.buttonNewsEdit.Text = "修改新闻(&E)";
-            this.buttonNewsEdit.UseVisualStyleBackColor = true;
-            this.buttonNewsEdit.Click += new System.EventHandler(this.buttonNewsEdit_Click);
-            // 
-            // buttonNewsDelete
-            // 
-            this.buttonNewsDelete.Location = new System.Drawing.Point(6, 138);
-            this.buttonNewsDelete.Name = "buttonNewsDelete";
-            this.buttonNewsDelete.Size = new System.Drawing.Size(121, 23);
-            this.buttonNewsDelete.TabIndex = 5;
-            this.buttonNewsDelete.Text = "删除新闻(&D)";
-            this.buttonNewsDelete.UseVisualStyleBackColor = true;
-            this.buttonNewsDelete.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormMain
             // 
@@ -1596,6 +1597,11 @@
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tabNews.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
             this.tabSystem.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1610,11 +1616,6 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.tabNews.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

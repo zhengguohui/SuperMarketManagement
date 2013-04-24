@@ -29,7 +29,6 @@ namespace SuperMarketManagement
             {
                 this.Text = "修改会员信息";
                 this.AcceptButton = buttonOK;
-
                 string sql = String.Format("select smm_idcard,smm_name,smm_sex,smm_address,smm_telephone,smm_cellphone,smm_password,smm_cardnumber,smm_other from smm_customer where id={0}", cardnumber);
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
@@ -62,7 +61,6 @@ namespace SuperMarketManagement
             {
                 this.Text = "增加会员信息";
                 ClassSettings cs = new ClassSettings();
-
                 textBoxCustomerPassword.Text = cs.GetSettings("customernewpassword");
                 textBoxCustomerRePassword.Text = cs.GetSettings("customernewpassword");
                 label11.Text = "会员的初始密码是：" + cs.GetSettings("customernewpassword");
@@ -115,15 +113,11 @@ namespace SuperMarketManagement
                     }
                     else
                     {
-
                         string sql1 = String.Format("insert into smm_customer (smm_cardnumber,smm_idcard,smm_name,smm_sex,smm_address,smm_telephone,smm_cellphone,smm_jifen,smm_password,smm_other) values ('{0}','{1}','{2}',{3},'{4}','{5}','{6}',{7},'{8}','{9}')", textBoxCardNumber.Text, textBoxIDCard.Text, textBoxCustomerName.Text, sex, textBoxAddress.Text, textBoxTelePhone.Text, textBoxCellPhone.Text, 0, ce.Encode(textBoxCustomerPassword.Text), textBoxCustomerOther.Text);
                         ClassManageDataBase db1 = new ClassManageDataBase();
                         db1.SQLExecute(sql1);
                         this.Close();
                     }
-
-
-
                 }
                 if (action == 1)
                 {
@@ -132,8 +126,6 @@ namespace SuperMarketManagement
                     db2.SQLExecute(sql2);
                     this.Close();
                 }
-
-
             }
             //this.Dispose();
         }

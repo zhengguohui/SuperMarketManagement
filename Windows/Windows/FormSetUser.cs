@@ -81,9 +81,7 @@ namespace SuperMarketManagement
                 }
                 else
                 {
-
                     string sql = "";
-
                     if (action == 0)
                     {
                         string sql1 = String.Format("select smm_username from smm_user where smm_username='{0}'", textBoxUserName.Text);
@@ -102,9 +100,6 @@ namespace SuperMarketManagement
                             db.SQLExecute(sql);
                             this.Close();
                         }
-
-
-
                     }
                     if (action == 1)
                     {
@@ -113,9 +108,6 @@ namespace SuperMarketManagement
                         db.SQLExecute(sql);
                         this.Close();
                     }
-
-
-
                 }
         }
 

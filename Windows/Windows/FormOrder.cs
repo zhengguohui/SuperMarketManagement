@@ -30,8 +30,6 @@ namespace SuperMarketManagement
             listView1.Columns.Add("数量", 100, HorizontalAlignment.Left);
             listView1.Columns.Add("单价", 100, HorizontalAlignment.Right);
             listView1.Columns.Add("小结", 150, HorizontalAlignment.Left);
-
-
             string sql1 = String.Format("select smm_product,smm_sum,smm_price from smm_order where smm_sell='{0}'", id);
             ClassManageDataBase db1 = new ClassManageDataBase();
             SqlDataReader dr1 = db1.SQLReader(sql1);
@@ -39,7 +37,6 @@ namespace SuperMarketManagement
             {
                 ListViewItem li = new ListViewItem();
                 li.SubItems.Clear();
-
                 string sql2 = String.Format("select smm_name from smm_product where smm_number='{0}'", dr1[0]);
                 ClassManageDataBase db2 = new ClassManageDataBase();
                 SqlDataReader dr2 = db2.SQLReader(sql2);
@@ -48,9 +45,7 @@ namespace SuperMarketManagement
                 {
                     name = dr2[0].ToString();
                 }
-
                 li.SubItems[0].Text = name;
-
                 li.SubItems.Add(dr1[1].ToString());
                 li.SubItems.Add(dr1[2].ToString());
                 double g = Convert.ToInt32(dr1[1]) * Convert.ToDouble(dr1[2]);
@@ -59,9 +54,7 @@ namespace SuperMarketManagement
                 //li.Tag = dr1[0].ToString();
                 listView1.Items.Add(li);
             }
-
             label1.Text = "总价：" + total.ToString();
-
             string sql = String.Format("select smm_tag from smm_sell where id={0}", id);
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
@@ -71,18 +64,15 @@ namespace SuperMarketManagement
                 button1.Visible = false;
                 button2.Visible = false;
                 this.AcceptButton = button3;
-
             }
             else if (dr[0].ToString() == "1")
             {
-
                 button2.Visible = false;
                 this.AcceptButton = button1;
             }
             else if (dr[0].ToString() == "2")
             {
                 button1.Visible = false;
-
                 this.AcceptButton = button2;
             }
             else
@@ -112,7 +102,6 @@ namespace SuperMarketManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             FormSetOrder abc = new FormSetOrder(total);
             abc.ShowDialog();
             if (abc.OK)
@@ -128,10 +117,6 @@ namespace SuperMarketManagement
                 MessageBox.Show("订单完成！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-
-
-
-
         }
     }
 }

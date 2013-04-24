@@ -16,7 +16,6 @@ namespace Website
             {
                 Response.Redirect("default.aspx");
             }
-
             if (!IsPostBack)
             {
                 TextBox1.Focus();
@@ -58,8 +57,6 @@ namespace Website
             else
             {
                 string sql = "select smm_password from smm_customer where smm_cardnumber='" + Session["username"] + "' and smm_password='" + ce.Encode(t1) + "'";
-
-
                 ClassManageDataBase db = new ClassManageDataBase();
                 if (db.SQLNumber(sql) <= 0)
                 {
@@ -74,7 +71,6 @@ namespace Website
                     Response.Redirect("account.aspx");
                 }
             }
-
         }
     }
 }

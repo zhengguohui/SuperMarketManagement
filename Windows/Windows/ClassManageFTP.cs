@@ -20,9 +20,6 @@ namespace SuperMarketManagement
         }
         public ClassManageFTP(string a, string b, string c)
         {
-
-
-
             address = a;
             username = b;
             password = c;
@@ -41,7 +38,6 @@ namespace SuperMarketManagement
                 int buffLength = 20480;
                 byte[] buff = new byte[buffLength];
                 int contentLen;
-
                 FileStream fs = f.OpenRead();
                 Stream sw = ftp.GetRequestStream();
                 contentLen = fs.Read(buff, 0, buffLength);
@@ -49,22 +45,18 @@ namespace SuperMarketManagement
                 {
                     sw.Write(buff, 0, contentLen);
                     contentLen = fs.Read(buff, 0, buffLength);
-
                 }
                 sw.Close();
                 fs.Close();
                 return true;
-
             }
             catch { return false; }
-
         }
         public bool Download(string GetFilename, string SaveFileName)
         {
             try
             {
                 FtpWebRequest ftp;
-
                 ftp = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + address + "/" + GetFilename));
                 ftp.Credentials = new NetworkCredential(username, password);
                 FileStream outputStream = new FileStream(SaveFileName, FileMode.Create);
@@ -82,7 +74,6 @@ namespace SuperMarketManagement
                 {
                     outputStream.Write(buffer, 0, readCount);
                     readCount = ftpStream.Read(buffer, 0, bufferSize);
-
                 }
                 ftpStream.Close();
                 outputStream.Close();
@@ -93,28 +84,24 @@ namespace SuperMarketManagement
             {
                 return false;
             }
-
         }
         public bool Delete(string filename)
         {
             try
             {
                 FtpWebRequest ftp;
-
                 ftp = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + address + "/" + filename));
                 ftp.Credentials = new NetworkCredential(username, password);
                 ftp.Method = WebRequestMethods.Ftp.DeleteFile;
                 ftp.KeepAlive = false;
                 FtpWebResponse response = (FtpWebResponse)ftp.GetResponse();
                 response.Close();
-
                 return true;
             }
             catch
             {
                 return false;
             }
-
         }
     }
 }

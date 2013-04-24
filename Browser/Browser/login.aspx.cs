@@ -22,7 +22,6 @@ namespace Website
             {
                 if (Convert.ToInt32(Request.QueryString["u"]) == 0 || Convert.ToInt32(Request.QueryString["p"]) == 0)
                 {
-
                 }
                 else
                 {
@@ -47,7 +46,6 @@ namespace Website
             else
             {
                 Login(TextBoxLoginUsername.Text.Trim(), TextBoxLoginPassword.Text.Trim());
-
             }
         }
         void Login(string a, string b)

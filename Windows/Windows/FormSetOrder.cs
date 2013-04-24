@@ -16,7 +16,6 @@ namespace SuperMarketManagement
         {
             InitializeComponent();
             money1 = a;
-
         }
 
         private void FormSetOrder_Load(object sender, EventArgs e)

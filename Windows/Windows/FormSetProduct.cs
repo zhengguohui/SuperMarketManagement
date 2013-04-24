@@ -54,7 +54,6 @@ namespace SuperMarketManagement
                 textBoxAbout.Text = dr[3].ToString();
                 textBoxPrice.Text = dr[4].ToString();
                 oldkzm = dr[5].ToString();
-
                 if (oldkzm != "")
                 {
                     ClassManageFTP cmt = new ClassManageFTP();
@@ -72,7 +71,6 @@ namespace SuperMarketManagement
                         ////////File.Delete(NewFile);
                     }
                 }
-                // ;
             }
         }
 
@@ -106,9 +104,7 @@ namespace SuperMarketManagement
                 double price = -1;
                 try
                 {
-
                     price = Convert.ToDouble(textBoxPrice.Text);
-
                 }
                 catch
                 {
@@ -134,7 +130,6 @@ namespace SuperMarketManagement
                             string kzm = oldkzm;
                             if (upload == true)
                             {
-
                                 ClassManageFTP cmt = new ClassManageFTP();
                                 kzm = uploadpicture.Substring(uploadpicture.LastIndexOf(".") + 1, (uploadpicture.Length - uploadpicture.LastIndexOf(".") - 1));
                                 string newFile = textBoxNumber.Text + "." + kzm;
@@ -142,33 +137,21 @@ namespace SuperMarketManagement
                                 {
                                     MessageBox.Show("已经添加成功，但是图片没有成功上传！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
-                                // cmt.download("20030505.jpg","d:\\1.jpg");
                             }
-
-
-
-
-
                             string sql1 = String.Format("insert into smm_product (smm_number,smm_name,smm_danwei,smm_about,smm_tag,smm_price,smm_sum,smm_picture) values('{0}','{1}','{2}','{3}','{4}','{5}',0,'{6}')", textBoxNumber.Text, textBoxName.Text, comboBoxDanwei.Text, textBoxAbout.Text, textBoxTag.Text, price, kzm);
                             ClassManageDataBase db1 = new ClassManageDataBase();
                             db1.SQLExecute(sql1);
                             this.Close();
-
-
                         }
                     }
                     if (action == 1)
                     {
-
-
                         string kzm = oldkzm;
                         if (upload == true)
                         {
                             string deletefile = number + "." + oldkzm;
                             ClassManageFTP cmt1 = new ClassManageFTP();
                             cmt1.Delete(deletefile);
-
-
                             ClassManageFTP cmt = new ClassManageFTP();
                             kzm = uploadpicture.Substring(uploadpicture.LastIndexOf(".") + 1, (uploadpicture.Length - uploadpicture.LastIndexOf(".") - 1));
                             string newFile = number + "." + kzm;
@@ -176,9 +159,7 @@ namespace SuperMarketManagement
                             {
                                 MessageBox.Show("已经修改成功，但是图片没有成功上传！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
-                            // cmt.download("20030505.jpg","d:\\1.jpg");
                         }
-
                         string sql = String.Format("update smm_product set smm_name='{0}',smm_danwei='{1}',smm_about='{2}',smm_tag='{3}',smm_price='{4}',smm_picture='{5}' where smm_number='{6}'", textBoxName.Text, comboBoxDanwei.Text, textBoxAbout.Text, textBoxTag.Text, price, kzm, number);
                         ClassManageDataBase db = new ClassManageDataBase();
                         db.SQLExecute(sql);
@@ -239,14 +220,7 @@ namespace SuperMarketManagement
             {
                 upload = true;
                 uploadpicture = openFileDialog1.FileName;
-
                 pictureBox1.Image = Image.FromFile(uploadpicture);
-
-
-
-
-
-
             }
         }
     }

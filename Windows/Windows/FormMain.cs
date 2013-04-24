@@ -24,7 +24,6 @@ namespace SuperMarketManagement
         {
             //this.MaximumSize = this.Size;
             //this.MinimumSize = this.Size;
-
             timer1.Interval = 1000;
             timer1.Enabled = true;
             timer1_Tick(sender, e);
@@ -45,7 +44,6 @@ namespace SuperMarketManagement
                 ClassSettings cs = new ClassSettings();
                 textBoxSuperMarketName.Text = cs.GetSettings("supermarketname");
                 textBoxCustomerNewPassword.Text = cs.GetSettings("customernewpassword");
-
                 textBoxFTPAddress.Text = cs.GetSettings("ftpaddress");
                 textBoxFTPUsername.Text = cs.GetSettings("ftpusername");
                 textBoxFTPPassword.Text = cs.GetSettings("ftppassword");
@@ -100,7 +98,6 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabSystem);
                 tabControl1.TabPages.Remove(tabNews);
                 SetSell();
-
             }
             else if (dr[1].ToString().Trim() == "6")
             {
@@ -136,7 +133,6 @@ namespace SuperMarketManagement
                 tabControl1.TabPages.Remove(tabNews);
             }
             db.Close();
-
         }
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -211,7 +207,6 @@ namespace SuperMarketManagement
         }
         private void RefreshUser()
         {
-
             string sql;
             if (comboBox1.SelectedIndex == 0)
             {
@@ -266,22 +261,16 @@ namespace SuperMarketManagement
                 li.SubItems.Add(js);
                 li.Tag = dr[0].ToString();
                 listView1.Items.Add(li);
-
-
             }
-
             try
             {
                 listView1.Items[0].Selected = true;
             }
             catch { }
-
-
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshUser();
-
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
@@ -333,16 +322,12 @@ namespace SuperMarketManagement
 
         private void buttonAddUser_Click(object sender, EventArgs e)
         {
-
             new FormSetUser(0, "").ShowDialog();
             RefreshUser();
-
         }
-
 
         private void SetCustomer()
         {
-
             listView2.GridLines = true;
             listView2.FullRowSelect = true;
             listView2.View = View.Details;
@@ -358,11 +343,7 @@ namespace SuperMarketManagement
             listView2.Columns.Add("身份证号", 120, HorizontalAlignment.Left);
             listView2.Columns.Add("住址", 200, HorizontalAlignment.Left);
             listView2.Columns.Add("备注", 200, HorizontalAlignment.Left);
-
-
-
             RefreshCustomer();
-
         }
 
         private string SeleteCustomer()
@@ -376,12 +357,10 @@ namespace SuperMarketManagement
             {
                 MessageBox.Show("请选择会员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             return user;
         }
         private void RefreshCustomer()
         {
-
             string sql = "";
             if (textBoxCutomerSearch.Text.Trim() == "")
             {
@@ -422,17 +401,12 @@ namespace SuperMarketManagement
                 li.SubItems.Add(dr[9].ToString());
                 li.Tag = dr[8].ToString();
                 listView2.Items.Add(li);
-
             }
             try
             {
                 listView2.Items[0].Selected = true;
             }
             catch { }
-
-
-
-
         }
 
         private void tabUser_Click(object sender, EventArgs e)
@@ -448,14 +422,12 @@ namespace SuperMarketManagement
 
         private void buttonUpdateCustomer_Click(object sender, EventArgs e)
         {
-
             string user = SeleteCustomer();
             if (user != "")
             {
                 new FormSetCustomer(1, user).ShowDialog();
                 RefreshCustomer();
             }
-
         }
 
         private void buttonDeleteCustomer_Click(object sender, EventArgs e)
@@ -465,13 +437,11 @@ namespace SuperMarketManagement
             {
                 if (MessageBox.Show("您确定要删除“" + user + "”吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     string sql = String.Format("delete from smm_customer where id={0}", user);
                     ClassManageDataBase db = new ClassManageDataBase();
                     db.SQLExecute(sql);
                     RefreshCustomer();
                     MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
@@ -530,7 +500,6 @@ namespace SuperMarketManagement
             {
                 buttonDeleteUser_Click(sender, e);
             }
-
         }
 
         private void buttonCustomerNewPassword_Click(object sender, EventArgs e)
@@ -539,8 +508,6 @@ namespace SuperMarketManagement
             cs.SetSettings("customernewpassword", textBoxCustomerNewPassword.Text);
             MessageBox.Show("设置成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
 
         private void SetProduct()
         {
@@ -558,16 +525,10 @@ namespace SuperMarketManagement
             listView3.Columns.Add("商品数量", 60, HorizontalAlignment.Right);
             listView3.Columns.Add("商品标签", 200, HorizontalAlignment.Left);
             listView3.Columns.Add("商品介绍", 200, HorizontalAlignment.Left);
-
-
-
-
             RefreshProduct();
-
         }
         private void RefreshProduct()
         {
-
             string sql = "";
             if (textBoxProductSearch.Text.Trim() == "")
             {
@@ -582,7 +543,6 @@ namespace SuperMarketManagement
             listView3.Items.Clear();
             while (dr.Read())
             {
-
                 ListViewItem li = new ListViewItem();
                 li.SubItems.Clear();
                 li.SubItems[0].Text = dr[0].ToString();
@@ -592,19 +552,14 @@ namespace SuperMarketManagement
                 li.SubItems.Add(dr[6].ToString());
                 li.SubItems.Add(dr[3].ToString());
                 li.SubItems.Add(dr[4].ToString());
-
                 li.Tag = dr[0].ToString();
                 listView3.Items.Add(li);
-
             }
-
-
             try
             {
                 listView3.Items[0].Selected = true;
             }
             catch { }
-
         }
 
         private void textBoxProductSearch_TextChanged(object sender, EventArgs e)
@@ -647,16 +602,11 @@ namespace SuperMarketManagement
                     string deletefile = user + "." + dr[0].ToString();
                     ClassManageFTP cmt1 = new ClassManageFTP();
                     cmt1.Delete(deletefile);
-
                     string sql = String.Format("delete from smm_product where smm_number='{0}'", user);
                     ClassManageDataBase db = new ClassManageDataBase();
                     db.SQLExecute(sql);
-
-
-
                     RefreshProduct();
                     MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
@@ -696,7 +646,6 @@ namespace SuperMarketManagement
         private void buttonSetFTP_Click(object sender, EventArgs e)
         {
             ClassManageFTP cmt = new ClassManageFTP(textBoxFTPAddress.Text, textBoxFTPUsername.Text, textBoxFTPPassword.Text);
-
             if (!cmt.Upload(Application.ExecutablePath, "test.zip"))
             {
                 MessageBox.Show("FTP无法联通，请检查参数是否正确！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -712,8 +661,6 @@ namespace SuperMarketManagement
                 cs.SetSettings("ftppassword", textBoxFTPPassword.Text);
                 MessageBox.Show("设置成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
         private void buttonBuySearch_Click(object sender, EventArgs e)
@@ -756,20 +703,11 @@ namespace SuperMarketManagement
                 {
                     pictureBoxProduct.Visible = false;
                 }
-
-
-
-
-
                 labelProductName.Visible = true;
                 labelProductDanwei.Visible = true;
-
                 labelProductPrice.Visible = true;
                 labelProductTag.Visible = true;
                 labelProductAbout.Visible = true;
-
-
-
                 textBoxProductSum.Enabled = true;
                 textBoxProductPrice.Enabled = true;
                 buttonBuyNow.Enabled = true;
@@ -781,7 +719,6 @@ namespace SuperMarketManagement
                 pictureBoxProduct.Visible = false;
                 labelProductName.Visible = false;
                 labelProductDanwei.Visible = false;
-
                 labelProductPrice.Visible = false;
                 labelProductTag.Visible = false;
                 labelProductAbout.Visible = false;
@@ -858,21 +795,17 @@ namespace SuperMarketManagement
                 dr.Read();
                 int a = Convert.ToInt32(dr[0]);
                 int b = a + productsum;
-
                 string sql = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", b, buynumber);
                 ClassManageDataBase db = new ClassManageDataBase();
                 db.SQLExecute(sql);
-
                 string sql2 = String.Format("insert into smm_buy (smm_number,smm_sum,smm_price,smm_time) values ('{0}',{1},{2},'{3}')", buynumber, productsum, productprice, DateTime.Now);
                 ClassManageDataBase db2 = new ClassManageDataBase();
                 db2.SQLExecute(sql2);
-
                 RefreshBuy();
                 MessageBox.Show("入库成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pictureBoxProduct.Visible = false;
                 labelProductName.Visible = false;
                 labelProductDanwei.Visible = false;
-
                 labelProductPrice.Visible = false;
                 labelProductTag.Visible = false;
                 labelProductAbout.Visible = false;
@@ -885,7 +818,6 @@ namespace SuperMarketManagement
                 textBoxProductNumber.SelectAll();
                 textBoxProductNumber.Focus();
             }
-
         }
 
         private void textBoxProductSum_KeyDown(object sender, KeyEventArgs e)
@@ -906,7 +838,6 @@ namespace SuperMarketManagement
 
         private void SetBuy()
         {
-
             listView4.GridLines = true;
             listView4.FullRowSelect = true;
             listView4.View = View.Details;
@@ -918,26 +849,17 @@ namespace SuperMarketManagement
             listView4.Columns.Add("入库数量", 70, HorizontalAlignment.Right);
             listView4.Columns.Add("入库总价", 70, HorizontalAlignment.Right);
             listView4.Columns.Add("入库时间", 160, HorizontalAlignment.Left);
-
-
-
-
-
             RefreshBuy();
-
         }
         private void RefreshBuy()
         {
-
             string sql = String.Format("select id,smm_number,smm_sum,smm_price,smm_time from smm_buy order by id desc");
-
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             listView4.Items.Clear();
             while (dr.Read())
             {
                 string name = "无或已删除";
-
                 try
                 {
                     string sql1 = String.Format("select smm_name from smm_product where smm_number='{0}'", dr[1].ToString());
@@ -947,7 +869,6 @@ namespace SuperMarketManagement
                     name = dr1[0].ToString();
                 }
                 catch { }
-
                 ListViewItem li = new ListViewItem();
                 li.SubItems.Clear();
                 li.SubItems[0].Text = dr[1].ToString();
@@ -955,19 +876,14 @@ namespace SuperMarketManagement
                 li.SubItems.Add(dr[2].ToString());
                 li.SubItems.Add(dr[3].ToString());
                 li.SubItems.Add(dr[4].ToString());
-
                 li.Tag = dr[0].ToString();
                 listView4.Items.Add(li);
-
             }
-
             try
             {
                 listView4.Items[0].Selected = true;
             }
             catch { }
-
-
         }
         private string SeleteBuy()
         {
@@ -980,7 +896,6 @@ namespace SuperMarketManagement
             {
                 MessageBox.Show("请选择入库记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             return user;
         }
 
@@ -998,20 +913,15 @@ namespace SuperMarketManagement
                         SqlDataReader dr2 = db2.SQLReader(sql2);
                         dr2.Read();
                         int b = Convert.ToInt32(dr2[0]);
-
                         string sql1 = String.Format("select smm_sum from smm_product where smm_number='{0}'", dr2[1].ToString());
                         ClassManageDataBase db1 = new ClassManageDataBase();
                         SqlDataReader dr = db1.SQLReader(sql1);
                         dr.Read();
                         int a = Convert.ToInt32(dr[0]);
-
                         int c = a - b;
-
                         string sql3 = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", c, dr2[1].ToString());
                         ClassManageDataBase db3 = new ClassManageDataBase();
                         db3.SQLExecute(sql3);
-
-
                     }
                     catch { }
                     finally
@@ -1020,11 +930,8 @@ namespace SuperMarketManagement
                         ClassManageDataBase db = new ClassManageDataBase();
                         db.SQLExecute(sql);
                     }
-
-
                     RefreshBuy();
                     MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
@@ -1064,7 +971,6 @@ namespace SuperMarketManagement
                     {
                         customercardnumber = "";
                         MessageBox.Show("未找到该会员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     }
                 }
                 else if (textBoxCardNumber.Text.Trim().Length == 13)
@@ -1083,7 +989,6 @@ namespace SuperMarketManagement
                                 s = false;
                             }
                         }
-
                         if (s)
                         {
                             Sell.Add(textBoxCardNumber.Text.Trim());
@@ -1093,9 +998,7 @@ namespace SuperMarketManagement
                     }
                     else
                     {
-
                         MessageBox.Show("未找到该商品！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     }
                 }
                 else
@@ -1122,13 +1025,7 @@ namespace SuperMarketManagement
             listView5.Columns.Add("商品单价", 70, HorizontalAlignment.Right);
             listView5.Columns.Add("商品数量", 70, HorizontalAlignment.Right);
             listView5.Columns.Add("小结", 70, HorizontalAlignment.Right);
-
-
-
-
-
             RefreshSell();
-
         }
         double total;
         private void RefreshSell()
@@ -1151,7 +1048,6 @@ namespace SuperMarketManagement
                     ClassManageDataBase db = new ClassManageDataBase();
                     SqlDataReader dr = db.SQLReader(sql);
                     dr.Read();
-
                     ListViewItem li = new ListViewItem();
                     li.SubItems.Clear();
                     li.SubItems[0].Text = Sell[i].ToString();
@@ -1159,28 +1055,18 @@ namespace SuperMarketManagement
                     li.SubItems.Add(dr[1].ToString());
                     li.SubItems.Add(Sell[i + 1].ToString());
                     li.SubItems.Add((Convert.ToDouble(dr[1]) * Convert.ToInt32(Sell[i + 1])).ToString());
-
                     li.Tag = Sell[i].ToString();
                     listView5.Items.Add(li);
                     total += Convert.ToDouble(dr[1]) * Convert.ToInt32(Sell[i + 1]);
-
                 }
                 labelSumPrice.Text = "总价：" + total.ToString();
             }
             catch { }
-
-
-
-
-
-
-
             try
             {
                 listView5.Items[0].Selected = true;
             }
             catch { }
-
         }
         private string SeleteSell()
         {
@@ -1193,11 +1079,9 @@ namespace SuperMarketManagement
             {
                 MessageBox.Show("请选择商品记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             return user;
         }
         ArrayList Sell = new ArrayList();
-
         private void buttonDeleteSell_Click(object sender, EventArgs e)
         {
             string user = SeleteSell();
@@ -1205,8 +1089,6 @@ namespace SuperMarketManagement
             {
                 if (MessageBox.Show("您确定要删除该商品吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-
                     for (int i = 0; i < Sell.Count; i = i + 2)
                     {
                         if (Sell[i].ToString() == user)
@@ -1214,12 +1096,9 @@ namespace SuperMarketManagement
                             Sell.RemoveAt(i + 1);
                             Sell.RemoveAt(i);
                         }
-
                     }
-
                     RefreshSell();
                     //MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
             textBoxCardNumber.SelectAll();
@@ -1239,8 +1118,6 @@ namespace SuperMarketManagement
             string user = SeleteSell();
             if (user != "")
             {
-
-
                 string sql = String.Format("select smm_name from smm_product where smm_number='{0}'", user);
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
@@ -1253,7 +1130,6 @@ namespace SuperMarketManagement
                     {
                         b = (Sell[i + 1].ToString());
                     }
-
                 }
                 FormSetSellNumber abc = new FormSetSellNumber(a, b);
                 abc.ShowDialog();
@@ -1266,7 +1142,6 @@ namespace SuperMarketManagement
                             Sell.RemoveAt(i + 1);
                             Sell.RemoveAt(i);
                         }
-
                     }
                 }
                 else
@@ -1277,13 +1152,9 @@ namespace SuperMarketManagement
                         {
                             Sell[i + 1] = abc.number;
                         }
-
                     }
                 }
-
                 RefreshSell();
-
-
                 textBoxCardNumber.SelectAll();
                 textBoxCardNumber.Focus();
             }
@@ -1306,20 +1177,17 @@ namespace SuperMarketManagement
                 SqlDataReader dr = db.SQLReader(sql);
                 dr.Read();
                 dr[0].ToString();
-
                 for (int j = 0; j < Sell.Count; j = j + 2)
                 {
                     string sql2 = String.Format("select smm_price,smm_sum from smm_product where smm_number='{0}'", Sell[j].ToString());
                     ClassManageDataBase db2 = new ClassManageDataBase();
                     SqlDataReader dr2 = db2.SQLReader(sql2);
                     dr2.Read();
-
                     int s = Convert.ToInt32(dr2[1]);
                     s = s - Convert.ToInt32(Sell[j + 1]);
                     string sql5 = String.Format("update smm_product set smm_sum={0} where smm_number='{1}'", s, Sell[j]);
                     ClassManageDataBase db5 = new ClassManageDataBase();
                     db5.SQLExecute(sql5);
-
                     string sql1 = String.Format("insert into smm_order(smm_product,smm_sum,smm_price,smm_sell) values('{0}','{1}','{2}',{3})", Sell[j].ToString(), Sell[j + 1].ToString(), dr2[0].ToString(), dr[0].ToString());
                     ClassManageDataBase db1 = new ClassManageDataBase();
                     db1.SQLExecute(sql1);
@@ -1332,21 +1200,16 @@ namespace SuperMarketManagement
                     dr4.Read();
                     int m = Convert.ToInt32(dr4[0]);
                     int n = m + Convert.ToInt32(total);
-
                     string sql3 = String.Format("update smm_customer set smm_jifen={0} where smm_cardnumber='{1}'", n, customercardnumber);
                     ClassManageDataBase db3 = new ClassManageDataBase();
                     db3.SQLExecute(sql3);
                 }
-
-
                 for (int i = Sell.Count - 1; i >= 0; i--)
                 {
-
                     Sell.RemoveAt(i);
                 }
                 customercardnumber = "";
                 RefreshSell();
-
             }
         }
 
@@ -1366,8 +1229,6 @@ namespace SuperMarketManagement
             }
         }
 
-
-
         private void SetOrder()
         {
             comboBoxOrderList.SelectedIndex = 0;
@@ -1386,7 +1247,6 @@ namespace SuperMarketManagement
         }
         private void RefreshOrder()
         {
-
             string str;
             if (comboBoxOrderList.SelectedIndex == 0)
             {
@@ -1398,7 +1258,6 @@ namespace SuperMarketManagement
                 {
                     str = String.Format("where smm_customer like '%{0}%' or id like '%{1}%'", textBoxOrderSearch.Text.Trim(), textBoxOrderSearch.Text.Trim());
                 }
-
             }
             else
             {
@@ -1413,7 +1272,6 @@ namespace SuperMarketManagement
 
             }
             string sql = String.Format("select id,smm_price,smm_time,smm_customer,smm_tag from smm_sell " + str + " order by id desc");
-
             ClassManageDataBase db = new ClassManageDataBase();
             SqlDataReader dr = db.SQLReader(sql);
             listView6.Items.Clear();
@@ -1427,7 +1285,6 @@ namespace SuperMarketManagement
                 {
                     name = dr1[0].ToString();
                 }
-
                 ListViewItem li = new ListViewItem();
                 li.SubItems.Clear();
                 li.SubItems[0].Text = dr[0].ToString();
@@ -1454,17 +1311,12 @@ namespace SuperMarketManagement
                 li.SubItems.Add(g);
                 li.Tag = dr[0].ToString();
                 listView6.Items.Add(li);
-
-
             }
-
             try
             {
                 listView6.Items[0].Selected = true;
             }
             catch { }
-
-
         }
 
         private void comboBoxOrderList_SelectedIndexChanged(object sender, EventArgs e)
@@ -1492,7 +1344,6 @@ namespace SuperMarketManagement
             {
                 MessageBox.Show("请选择订单记录！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             return user;
         }
 
@@ -1563,12 +1414,10 @@ namespace SuperMarketManagement
             {
                 MessageBox.Show("请选择新闻！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             return user;
         }
         private void SetNews()
         {
-
             listView7.GridLines = true;
             listView7.FullRowSelect = true;
             listView7.View = View.Details;
@@ -1584,7 +1433,6 @@ namespace SuperMarketManagement
             listView7.Items.Clear();
             try
             {
-
                 string sql = String.Format("select smm_time,smm_title,id from smm_news where smm_title like '%{0}%' or smm_content like '%{1}%' order by smm_time desc", textBoxNewsSearch.Text, textBoxNewsSearch.Text);
                 ClassManageDataBase db = new ClassManageDataBase();
                 SqlDataReader dr = db.SQLReader(sql);
@@ -1594,29 +1442,16 @@ namespace SuperMarketManagement
                     li.SubItems.Clear();
                     li.SubItems[0].Text = dr[0].ToString();
                     li.SubItems.Add(dr[1].ToString());
-
                     li.Tag = dr[2].ToString();
                     listView7.Items.Add(li);
                 }
-
-
-
-
             }
             catch { }
-
-
-
-
-
-
-
             try
             {
                 listView5.Items[0].Selected = true;
             }
             catch { }
-
         }
 
         private void textBoxNewsSearch_TextChanged(object sender, EventArgs e)
@@ -1637,13 +1472,11 @@ namespace SuperMarketManagement
             {
                 if (MessageBox.Show("您确定要删除吗？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     string sql = String.Format("delete from smm_news where id='{0}'", user);
                     ClassManageDataBase db = new ClassManageDataBase();
                     db.SQLExecute(sql);
                     RefreshNews();
                     MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
         }
@@ -1667,6 +1500,11 @@ namespace SuperMarketManagement
         private void listView7_DoubleClick(object sender, EventArgs e)
         {
             buttonNewsEdit_Click(sender, e);
+        }
+
+        private void textBoxCardNumber_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

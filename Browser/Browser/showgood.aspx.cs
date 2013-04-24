@@ -23,7 +23,6 @@ namespace Website
                 m += "<tr><td>商品价格：</td><td>" + Convert.ToDouble(da["smm_price"]).ToString("0.00") + "元/" + da["smm_danwei"].ToString() + "</td></tr>";
                 m += "<tr><td>商品标签：</td><td>" + da["smm_tag"].ToString() + "</td></tr>";
                 m += "<tr><td colspan='2'>" + da["smm_about"].ToString() + "</td></tr>";
-
                 m += "</table>";
                 Label2.Text = m;
                 this.Title = ClassMain.GetPageTitle(da["smm_name"].ToString());
@@ -35,7 +34,6 @@ namespace Website
                 }
             }
             db.Close();
-
         }
 
         protected void Button2_Click(object sender, EventArgs e)
