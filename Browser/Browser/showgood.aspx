@@ -19,4 +19,10 @@
         <div class="span6"><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></div>
         
     </div>
+    <br /><br />
+     <div class="row">
+        <div class="span9">
+            <script type='text/javascript' charset='utf-8' src='http://open.denglu.cc/connect/commentcode?appid=65919denR3U4re4yXvy61Aqclb0kx5'></script>
+            </div>
+         </div>
 </asp:Content>
